@@ -1,5 +1,7 @@
 # Exercício
 
+## Equação do Segundo Grau
+
 Fazer um script para calcular as raízes de uma equação do segundo grau.
 
 O usuário deve entrar com os valores de **a**, **b** e **c**.

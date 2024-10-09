@@ -1,4 +1,4 @@
-# Tipos de dados: bool
+# Tipos de dados: Booleano (bool)
 
 ## Definição no Python
 
@@ -17,7 +17,7 @@ Servem principalmente para "ligar/desligar" funcionalidades.
 Em fórmulas de parâmetros também servem para tomadas de decisão.
 Parâmetros desse tipo são chamados **Yes/No** no Revit e podem assumir `null` (nulo) como um terceiro valor.
 
-![Bool Sample in Revit](../images/bool_sample_in_revit.png)
+![Bool Sample in Revit](images/bool_sample_in_revit.png)
 
 ## Operadores de Comparação
 | Operador | Descrição                                     |
@@ -57,9 +57,11 @@ if n % 2 == 0:
 
 ### Elif
 
-O `elif` é uma estrutura intermediária dentro da seção if-else no python e deve vir como um complemento a ambos. Quando você já tem um IF e um ELSE, mas precisa de uma condição para especificar outra regra, pode usar o elif.
+O `elif` é uma estrutura intermediária dentro da seção if-else no python e deve vir como um complemento a ambos. 
+Quando você já tem um IF e um ELSE, mas precisa de uma condição para especificar outra regra, pode usar o elif.
 
-Caso algo não tenha ficado exatamente claro, não se preocupe: estudaremos em detalhes como se faz o código dessas estruturas em um tutorial prático.
+Caso algo não tenha ficado exatamente claro, não se preocupe: estudaremos em detalhes como se faz o código 
+dessas estruturas em um tutorial prático.
 
 ```python
 if not isinstance(n, int):

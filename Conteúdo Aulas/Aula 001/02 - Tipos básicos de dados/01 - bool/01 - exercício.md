@@ -1,6 +1,8 @@
-# Exercício: Loja de Tintas
+# Exercício
 
-## Enunciado
+## Loja de Tintas
+
+### Enunciado
 Faça um programa para uma loja de tintas.
 
 O programa deverá pedir o tamanho em metros quadrados da área a ser pintada.
@@ -10,7 +12,7 @@ tinta é vendida em latas de 18 litros, que custam R$ 80,00.
 
 Informe ao usuário a quantidades de latas de tinta a serem compradas e o preço total.
 
-## Solução:
+### Solução:
 
 ```python
 area = float(input("Digite a área a ser pintada: "))
