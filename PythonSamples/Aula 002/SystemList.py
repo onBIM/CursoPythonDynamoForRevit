@@ -16,6 +16,8 @@ myPython_Numbers = [1, 2, 3, 4, 5, 5, 3, 1]
 
 numeros = HashSet[int](myPython_Numbers)
 
+print(list(numeros))
+
 myDotNet_Dictionary = Dictionary[str, int]()
 myDotNet_Dictionary["one"] = 1
 myDotNet_Dictionary["two"] = 2

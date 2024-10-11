@@ -142,3 +142,80 @@ saudacao("Python")  # Isso imprimirá "Olá, Python!"
 > Só podemos definir argumentos com valores padrão após os argumentos sem valor padrão.
 
 ![default_arg_error.png](images/default_arg_error.png)
+
+### Retorno de múltiplos valores
+
+Em Python, você pode retornar múltiplos valores de uma função.
+
+Para fazer isso, você pode simplesmente retornar uma tupla de valores.
+
+```python
+def quatro_operacoes(a, b):
+    return a + b, a - b, a * b, a / b
+```
+
+### Argumentos que são outras funções
+
+Em Python, funções podem ser passadas como argumentos para outras funções.
+
+```python
+def operacoes(a, b, soma_func, subtracao_func, multiplicacao_func, divisao_func):
+    soma = soma_func(a, b)
+    subtracao = subtracao_func(a, b)
+    multiplicacao = multiplicacao_func(a, b)
+    divisao = divisao_func(a, b)
+    
+    print(f"Soma: {soma}")
+    print(f"Subtração: {subtracao}")
+    print(f"Multiplicação: {multiplicacao}")
+    print(f"Divisão: {divisao}")
+
+
+def soma(a, b):
+    return a + b
+
+
+def subtracao(a, b):
+    return a - b
+
+
+def multiplicacao(a, b):
+    return a * b
+
+
+def divisao(a, b):
+    return a / b
+
+
+# Exemplo de uso
+operacoes(10, 5, soma, subtracao, multiplicacao, divisao)
+```
+### Garantir iterabilidade de Python Scripts no Dynamo
+
+Para garantir que nossos inputs sejam iteráveis, podemos usar a função `ToList`.
+
+```python
+# Opção 1
+def ToList(obj):
+    if hasattr(obj, "__iter__"):
+        return obj
+    else:
+        return [obj]
+
+# Opção 2
+def ToList(obj):
+    if isinstance(obj, list):
+        return obj
+    else:
+        return [obj]
+```
+
+## Exercício
+
+Melhorar a execução do código de cáculo da equação do segundo grau
+([exercicio - eq segundo grau.py](../../../PythonSamples/Aula%20001/exercicio%20-%20eq%20segundo%20grau.py)), usando 
+funções.
+
+
+
+
