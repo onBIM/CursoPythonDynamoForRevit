@@ -70,10 +70,23 @@ print(pessoa.Nome)  # Isso imprimirá "João"
 Herança é a capacidade de criar uma nova classe que herda atributos e métodos de uma classe existente.
 
 ```python
+class Pessoa:
+    def __init__(self, nome):
+        self.Nome = nome  # Cria um novo atributo: Nome
+
+
 class Aluno(Pessoa):
     def __init__(self, nome, matricula):
-        super().__init__(nome)
-        self.Matricula = matricula
+        super().__init__(nome)  # Chame o método __init__ da classe pai
+        
+        self.Matricula = matricula  # Cria um novo atributo: Matricula
+
+
+# Criando uma instância da classe Aluno
+student = Aluno("John Doe", "123456")
+
+print(student.Nome)  # Output: John Doe
+print(student.Matricula)  # Output: 123456
 ```
 
 Neste exemplo, a classe `Aluno` herda da classe `Pessoa`.
