@@ -16,9 +16,9 @@ Adiciona referência para os nodes de Geometria do Dynamo.
 
 ![dyn_geo_import.png](../../Aula%20001/01%20-%20Python%20dentro%20do%20Dynamo/images/dyn_geo_import.png)
 
-# Exercício
+# Exercício 1
 
-![img.png](img.png)
+![truss.png](images/truss.png)
 
 Fazer uma treliça paramétrica.
 
@@ -32,3 +32,7 @@ OUTPUT:
 1. Curvas dos banzos.
 2. Linhas dos montantes
 3. Linhas das Diagonais
+
+# Exercício 2
+
+Expandir o exercício anterior para funcionar em uma coberta completa
