@@ -1,6 +1,6 @@
 # by onBIM Technology
 # www.onbim.net
-# file name: ./Aula005/newFilter.py
+# file name: ./Aula 005/ViewIsNotOnSheet.py
 
 # REFERENCES AND IMPORTS
 # BEGIN>>>>>
@@ -23,23 +23,6 @@ from System.Collections.Generic import List as SystemList
 # Import Linq
 clr.ImportExtensions(System.Linq)
 
-# Import Dynamo Library Nodes - Geometry
-clr.AddReference('ProtoGeometry')
-from Autodesk.DesignScript import Geometry as DynamoGeometry
-
-# Import Dynamo Library Nodes - Core
-clr.AddReference('DSCoreNodes')
-from DSCore import List as DynamoList
-
-# Import Dynamo Library Nodes - Core
-clr.AddReference('DSCoreNodes')
-from DSCore import Color as DynamoColor
-
-# Import Dynamo Geometry Color
-# https://forum.dynamobim.com/t/geometrycolor-bygeometrycolor-inside-python/52724
-clr.AddReference('GeometryColor')
-from Modifiers import GeometryColor as DynamoGeometryColorize
-
 # Import Dynamo Library Nodes - Revit
 clr.AddReference("RevitNodes")
 import Revit as RevitNodes
@@ -59,23 +42,6 @@ clr.AddReference("RevitAPI")
 import Autodesk
 from Autodesk.Revit.DB import *
 
-# Import Revit User Interface API
-clr.AddReference("RevitAPIUI")
-from Autodesk.Revit.UI import *
-
-# Import Revit IFC API
-# https://forum.dynamobim.com/t/ifcexportutils/4833/7?u=ricardo_freitas
-clr.AddReference('RevitAPIIFC')
-from Autodesk.Revit.DB.IFC import *
-
-# Import Dynamo Services
-clr.AddReference('DynamoServices')
-from Dynamo import Events as DynamoEvents
-
-# Active Dynamo Workspace Path
-workspaceFullPath = DynamoEvents.ExecutionEvents.ActiveSession.CurrentWorkspacePath
-workspacePath = '\\'.join(workspaceFullPath.split('\\')[0:-1])
-
 # REFERENCES AND IMPORTS
 # END<<<<<
 
@@ -91,9 +57,6 @@ workspacePath = '\\'.join(workspaceFullPath.split('\\')[0:-1])
 # BEGIN>>>>>
 
 doc = DocumentManager.Instance.CurrentDBDocument
-uiapp = DocumentManager.Instance.CurrentUIApplication
-app = uiapp.Application
-uidoc = DocumentManager.Instance.CurrentUIApplication.ActiveUIDocument
 
 inputFromDynamo = IN[0]
 
@@ -108,19 +71,28 @@ result = []
 try:
     errorReport = None
     
-    walls = \
+    viewports = \
         FilteredElementCollector(doc) \
-            .OfCategory(BuiltInCategory.OST_Walls) \
+            .OfClass(Viewport) \
             .WhereElementIsNotElementType() \
             .ToElements()
     
-    # Filtrando as paredes que não são Model in place e Basic
-    basicWalls = []
-    for w in walls:
-        if not isinstance(w, FamilyInstance) and w.WallType.Kind == WallKind.Basic:
-            basicWalls.append(w)
+    viewIdsInSheets = viewports.Select(lambda vp: vp.ViewId)
     
-    result = basicWalls
+    viewsNotInSheets = \
+        FilteredElementCollector(doc) \
+            .OfCategory(BuiltInCategory.OST_Views) \
+            .WhereElementIsNotElementType() \
+            .Where(
+                lambda view: 
+                not view.IsTemplate
+                and view.Id not in viewIdsInSheets
+            )
+    
+    result = \
+        viewsNotInSheets \
+            .Select(lambda view: view.ToDSType(True)) \
+            .Where(lambda view: view is not None)
 
 except Exception as e:
     # if error occurs anywhere in the process catch it

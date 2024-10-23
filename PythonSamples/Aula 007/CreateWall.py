@@ -1,6 +1,6 @@
 # by onBIM Technology
 # www.onbim.net
-# file name: ./Aula 006/GetParameter.py
+# file name: ./PythonSamples/Aula 007/CreateWall.py
 
 # REFERENCES AND IMPORTS
 # BEGIN>>>>>
@@ -22,6 +22,10 @@ from System.Collections.Generic import List as SystemList
 
 # Import Linq
 clr.ImportExtensions(System.Linq)
+
+# Import Dynamo Library Nodes - Geometry
+clr.AddReference('ProtoGeometry')
+from Autodesk.DesignScript import Geometry as DynamoGeometry
 
 # Import Dynamo Library Nodes - Revit
 clr.AddReference("RevitNodes")
@@ -48,25 +52,8 @@ from Autodesk.Revit.DB import *
 # FUNCTIONS
 # BEGIN>>>>>
 
-def GetParameterValue(param):
-    if param is None and not isinstance(param, Parameter):
-        return None
-    
-    storageType = param.StorageType
-    
-    if storageType == StorageType.Integer:
-        return param.AsInteger()
-    
-    if storageType == StorageType.Double:
-        return param.AsDouble()
-    
-    if storageType == StorageType.String:
-        return param.AsString()
-    
-    if storageType == StorageType.ElementId:
-        return param.AsElementId()
-    
-    raise Exception("Storage Type inválido")
+# <<< Your classes and functions here >>>
+
 # FUNCTIONS
 # END<<<<<
 
@@ -75,7 +62,13 @@ def GetParameterValue(param):
 
 doc = DocumentManager.Instance.CurrentDBDocument
 
-dynElement = IN[0]
+# Convertendo geometria do Dynamo para o Revit
+wallBaseCurve = IN[0].ToRevitType(True)
+
+# Convertendo Elemento do Dynamo para o Revit
+level = UnwrapElement(IN[1])
+
+wallType = UnwrapElement(IN[2])
 
 result = []
 
@@ -88,21 +81,22 @@ result = []
 try:
     errorReport = None
     
-    rvtElement = UnwrapElement(dynElement)
-    
-    param = rvtElement.get_Parameter(BuiltInParameter.ALL_MODEL_INSTANCE_COMMENTS)
-    
-    # open transaction
+    # transaction
     TransactionManager.Instance.EnsureInTransaction(doc)
     
-    if param.IsReadOnly:
-        raise Exception("Parâmetro é somente leitura")
+    newWall = Wall.Create(
+        doc,
+        wallBaseCurve,
+        level.Id,
+        False
+    )
     
-    result = param.Set("Python é muito legal")
+    newWall.WallType = wallType
     
-    # close transaction
     TransactionManager.Instance.TransactionTaskDone()
-        
+    
+    result = newWall.ToDSType(True)
+
 except Exception as e:
     # if error occurs anywhere in the process catch it
     errorReport = traceback.format_exc()

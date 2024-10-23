@@ -1,12 +1,13 @@
 # by onBIM Technology
 # www.onbim.net
-# file name: ./Aula005/newFilter.py
+# file name: ./python/pydynamo test.py
 
 # REFERENCES AND IMPORTS
 # BEGIN>>>>>
 
 import clr
 import System
+import sys
 
 # <<< Python Modules >>>
 # BEGIN
@@ -76,27 +77,18 @@ from Dynamo import Events as DynamoEvents
 workspaceFullPath = DynamoEvents.ExecutionEvents.ActiveSession.CurrentWorkspacePath
 workspacePath = '\\'.join(workspaceFullPath.split('\\')[0:-1])
 
+# Import pydynamo
+pydynamoPath = workspacePath + "\\pydynamo"
+sys.path.append(pydynamoPath)
+import pydynamo as pydyn
+
 # REFERENCES AND IMPORTS
 # END<<<<<
 
 # FUNCTIONS
 # BEGIN>>>>>
 
-def IsValidBasicWallType(wallType):
-    """
-    Avalia se um tipo parede é válido, comparando se ele não é Model in place e é Basic
-    :param wallType: O tipo de parede a ser avaliada
-    :return: True, se a parede for válida. Senão retorna False
-    """
-    return wallType is not None and not isinstance(wallType, FamilySymbol) and wallType.Kind == WallKind.Basic
-
-def IsValidBasicWall(wall):
-    """
-    Avalia se uma parede é válida, comparando se ele não é Model in place e é Basic
-    :param wall: A parede a ser avaliada
-    :return: True, se a parede for válida. Senão retorna False
-    """
-    return wall is not None and not isinstance(wall, FamilyInstance) and wall.WallType.Kind == WallKind.Basic
+# <<< Your classes and functions here >>>
 
 # FUNCTIONS
 # END<<<<<
@@ -105,9 +97,6 @@ def IsValidBasicWall(wall):
 # BEGIN>>>>>
 
 doc = DocumentManager.Instance.CurrentDBDocument
-uiapp = DocumentManager.Instance.CurrentUIApplication
-app = uiapp.Application
-uidoc = DocumentManager.Instance.CurrentUIApplication.ActiveUIDocument
 
 inputFromDynamo = IN[0]
 
@@ -122,12 +111,13 @@ result = []
 try:
     errorReport = None
     
-    viewIdsInSheets = \
-        FilteredElementCollector(doc) \
-            .OfClass(Viewport) \
-            .Select(lambda vp: vp.ViewId.IntegerValue)
+    pydyn.RevitTaskDialog(_MainContent=pydyn.HelloWorld())
     
-    result = viewIdsInSheets
+    result = [
+        inputFromDynamo,
+        pydyn.PyDynamoVars.RevitVersionName,
+        pydyn.PyDynamoVars.RevitVersionNumber
+    ]
 
 except Exception as e:
     # if error occurs anywhere in the process catch it

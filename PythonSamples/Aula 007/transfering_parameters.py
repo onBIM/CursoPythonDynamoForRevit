@@ -1,6 +1,6 @@
 # by onBIM Technology
 # www.onbim.net
-# file name: ./Aula005/ViewIsNotOnSheet.py
+# file name: ./PythonSamples/Aula 007/transfering_parameters.py
 
 # REFERENCES AND IMPORTS
 # BEGIN>>>>>
@@ -58,7 +58,8 @@ from Autodesk.Revit.DB import *
 
 doc = DocumentManager.Instance.CurrentDBDocument
 
-inputFromDynamo = IN[0]
+element = UnwrapElement(IN[0])
+paramToSearch = IN[1]
 
 result = []
 
@@ -71,28 +72,24 @@ result = []
 try:
     errorReport = None
     
-    viewports = \
-        FilteredElementCollector(doc) \
-            .OfClass(Viewport) \
-            .WhereElementIsNotElementType() \
-            .ToElements()
+    ifcGuid = element.get_Parameter(BuiltInParameter.IFC_GUID).AsString()
     
-    viewIdsInSheets = viewports.Select(lambda vp: vp.ViewId)
+    # transaction
+    TransactionManager.Instance.EnsureInTransaction(doc)
     
-    viewsNotInSheets = \
-        FilteredElementCollector(doc) \
-            .OfCategory(BuiltInCategory.OST_Views) \
-            .WhereElementIsNotElementType() \
-            .Where(
-                lambda view: 
-                not view.IsTemplate
-                and view.Id not in viewIdsInSheets
-            )
+    # try get user parameter
     
-    result = \
-        viewsNotInSheets \
-            .Select(lambda view: view.ToDSType(True)) \
-            .Where(lambda view: view is not None)
+    if not isinstance(paramToSearch, str):
+        raise Exception("O nome do parâmetro precisa ser string (str)")
+    
+    userParam = element.LookupParameter(paramToSearch)
+    
+    if userParam is None:
+        raise Exception(f"O parâmetro {paramToSearch} não foi encontrado")
+    
+    result = userParam.Set(ifcGuid)
+    
+    TransactionManager.Instance.TransactionTaskDone()
 
 except Exception as e:
     # if error occurs anywhere in the process catch it

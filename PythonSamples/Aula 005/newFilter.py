@@ -1,6 +1,6 @@
 # by onBIM Technology
 # www.onbim.net
-# file name: ./Aula005/Filtrando Floor Plans.py
+# file name: ./Aula 005/newFilter.py
 
 # REFERENCES AND IMPORTS
 # BEGIN>>>>>
@@ -82,6 +82,8 @@ workspacePath = '\\'.join(workspaceFullPath.split('\\')[0:-1])
 # FUNCTIONS
 # BEGIN>>>>>
 
+# <<< Your classes and functions here >>>
+
 # FUNCTIONS
 # END<<<<<
 
@@ -106,15 +108,20 @@ result = []
 try:
     errorReport = None
     
-    floorPlans = \
+    walls = \
         FilteredElementCollector(doc) \
-            .OfCategory(BuiltInCategory.OST_Views) \
+            .OfCategory(BuiltInCategory.OST_Walls) \
             .WhereElementIsNotElementType() \
-            .Where(lambda view: view.ViewType == ViewType.FloorPlan) \
-            .Select(lambda view: view.ToDSType(True))
+            .ToElements()
     
-    result = floorPlans
- 
+    # Filtrando as paredes que não são Model in place e Basic
+    basicWalls = []
+    for w in walls:
+        if not isinstance(w, FamilyInstance) and w.WallType.Kind == WallKind.Basic:
+            basicWalls.append(w)
+    
+    result = basicWalls
+
 except Exception as e:
     # if error occurs anywhere in the process catch it
     errorReport = traceback.format_exc()

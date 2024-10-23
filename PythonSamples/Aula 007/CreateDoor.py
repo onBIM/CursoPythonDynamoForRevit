@@ -1,6 +1,6 @@
 # by onBIM Technology
 # www.onbim.net
-# file name: ./Aula 006/GetParameter.py
+# file name: ./PythonSamples/Aula 007/CreateDoor.py
 
 # REFERENCES AND IMPORTS
 # BEGIN>>>>>
@@ -22,6 +22,10 @@ from System.Collections.Generic import List as SystemList
 
 # Import Linq
 clr.ImportExtensions(System.Linq)
+
+# Import Dynamo Library Nodes - Geometry
+clr.AddReference('ProtoGeometry')
+from Autodesk.DesignScript import Geometry as DynamoGeometry
 
 # Import Dynamo Library Nodes - Revit
 clr.AddReference("RevitNodes")
@@ -48,25 +52,9 @@ from Autodesk.Revit.DB import *
 # FUNCTIONS
 # BEGIN>>>>>
 
-def GetParameterValue(param):
-    if param is None and not isinstance(param, Parameter):
-        return None
-    
-    storageType = param.StorageType
-    
-    if storageType == StorageType.Integer:
-        return param.AsInteger()
-    
-    if storageType == StorageType.Double:
-        return param.AsDouble()
-    
-    if storageType == StorageType.String:
-        return param.AsString()
-    
-    if storageType == StorageType.ElementId:
-        return param.AsElementId()
-    
-    raise Exception("Storage Type inválido")
+def GetWallMidPoint(w):
+    return w.Location.Curve.Evaluate(0.5, True)
+
 # FUNCTIONS
 # END<<<<<
 
@@ -75,7 +63,8 @@ def GetParameterValue(param):
 
 doc = DocumentManager.Instance.CurrentDBDocument
 
-dynElement = IN[0]
+wall = UnwrapElement(IN[0])
+symbol = UnwrapElement(IN[1])
 
 result = []
 
@@ -88,21 +77,25 @@ result = []
 try:
     errorReport = None
     
-    rvtElement = UnwrapElement(dynElement)
+    doorLocation = GetWallMidPoint(wall)
     
-    param = rvtElement.get_Parameter(BuiltInParameter.ALL_MODEL_INSTANCE_COMMENTS)
-    
-    # open transaction
+    # transaction
     TransactionManager.Instance.EnsureInTransaction(doc)
     
-    if param.IsReadOnly:
-        raise Exception("Parâmetro é somente leitura")
-    
-    result = param.Set("Python é muito legal")
-    
-    # close transaction
-    TransactionManager.Instance.TransactionTaskDone()
+    if not symbol.IsActive:
+        symbol.Activate()
         
+    newDoor = doc.Create.NewFamilyInstance(
+        doorLocation,
+        symbol,
+        wall,
+        Structure.StructuralType.NonStructural
+    )  
+    
+    result = newDoor.ToDSType(True)
+    
+    TransactionManager.Instance.TransactionTaskDone()
+
 except Exception as e:
     # if error occurs anywhere in the process catch it
     errorReport = traceback.format_exc()

@@ -1,6 +1,6 @@
 # by onBIM Technology
 # www.onbim.net
-# file name: ./Aula005/newFilter.py
+# file name: ./Aula 005/newFilter.py
 
 # REFERENCES AND IMPORTS
 # BEGIN>>>>>
@@ -82,15 +82,21 @@ workspacePath = '\\'.join(workspaceFullPath.split('\\')[0:-1])
 # FUNCTIONS
 # BEGIN>>>>>
 
+def IsValidBasicWallType(wallType):
+    """
+    Avalia se um tipo parede é válido, comparando se ele não é Model in place e é Basic
+    :param wallType: O tipo de parede a ser avaliada
+    :return: True, se a parede for válida. Senão retorna False
+    """
+    return wallType is not None and not isinstance(wallType, FamilySymbol) and wallType.Kind == WallKind.Basic
+
 def IsValidBasicWall(wall):
     """
     Avalia se uma parede é válida, comparando se ele não é Model in place e é Basic
     :param wall: A parede a ser avaliada
     :return: True, se a parede for válida. Senão retorna False
     """
-    return wall is not null and \ 
-        not isinstance(wall, FamilyInstance) and \
-        wall.WallType.Kind == WallKind.Basic
+    return wall is not None and not isinstance(wall, FamilyInstance) and wall.WallType.Kind == WallKind.Basic
 
 # FUNCTIONS
 # END<<<<<
@@ -116,20 +122,12 @@ result = []
 try:
     errorReport = None
     
-    walls = \
+    viewIdsInSheets = \
         FilteredElementCollector(doc) \
-            .OfCategory(BuiltInCategory.OST_Walls) \
-            .WhereElementIsNotElementType() \
-            .ToElements()
+            .OfClass(Viewport) \
+            .Select(lambda vp: vp.ViewId.IntegerValue)
     
-    # Filtrando as paredes que não são Model in place e Basic
-    basicWalls = [
-        wall
-        for wall in walls
-        if IsValidBasicWall(wall)
-    ]
-    
-    result = basicWalls
+    result = viewIdsInSheets
 
 except Exception as e:
     # if error occurs anywhere in the process catch it

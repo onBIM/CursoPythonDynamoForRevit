@@ -1,0 +1,149 @@
+{
+  "Uuid": "a9065bc9-fbb1-4db1-a8c4-24e241172885",
+  "IsCustomNode": false,
+  "Description": "",
+  "Name": "GetAllViews with pydynamo",
+  "ElementResolver": {
+    "ResolutionMap": {}
+  },
+  "Inputs": [],
+  "Outputs": [],
+  "Nodes": [
+    {
+      "ConcreteType": "PythonNodeModels.PythonNode, PythonNodeModels",
+      "Code": "# by onBIM Technology\r\n# www.onbim.net\r\n# file name: ./python/pydynamo test.py\r\n\r\n# REFERENCES AND IMPORTS\r\n# BEGIN>>>>>\r\n\r\nimport clr\r\nimport System\r\nimport sys\r\n\r\n# <<< Python Modules >>>\r\n# BEGIN\r\n\r\n# Import traceback module from Iron Python\r\nimport traceback\r\n\r\n# END\r\n\r\n# Import System Libraries\r\nclr.AddReference(\"System.Core\")\r\nfrom System.Collections.Generic import List as SystemList\r\n\r\n# Import Linq\r\nclr.ImportExtensions(System.Linq)\r\n\r\n# Import Dynamo Library Nodes - Geometry\r\nclr.AddReference('ProtoGeometry')\r\nfrom Autodesk.DesignScript import Geometry as DynamoGeometry\r\n\r\n# Import Dynamo Library Nodes - Core\r\nclr.AddReference('DSCoreNodes')\r\nfrom DSCore import List as DynamoList\r\n\r\n# Import Dynamo Library Nodes - Core\r\nclr.AddReference('DSCoreNodes')\r\nfrom DSCore import Color as DynamoColor\r\n\r\n# Import Dynamo Geometry Color\r\n# https://forum.dynamobim.com/t/geometrycolor-bygeometrycolor-inside-python/52724\r\nclr.AddReference('GeometryColor')\r\nfrom Modifiers import GeometryColor as DynamoGeometryColorize\r\n\r\n# Import Dynamo Library Nodes - Revit\r\nclr.AddReference(\"RevitNodes\")\r\nimport Revit as RevitNodes\r\n\r\n# Import ToDSType(bool) extension method\r\nclr.ImportExtensions(RevitNodes.Elements)\r\nclr.ImportExtensions(RevitNodes.GeometryConversion)\r\n\r\n# Import DocumentManager and TransactionManager\r\nclr.AddReference(\"RevitServices\")\r\nimport RevitServices\r\nfrom RevitServices.Persistence import DocumentManager\r\nfrom RevitServices.Transactions import TransactionManager\r\n\r\n# Import Revit API\r\nclr.AddReference(\"RevitAPI\")\r\nimport Autodesk\r\nfrom Autodesk.Revit.DB import *\r\n\r\n# Import Revit User Interface API\r\nclr.AddReference(\"RevitAPIUI\")\r\nfrom Autodesk.Revit.UI import *\r\n\r\n# Import Revit IFC API\r\n# https://forum.dynamobim.com/t/ifcexportutils/4833/7?u=ricardo_freitas\r\nclr.AddReference('RevitAPIIFC')\r\nfrom Autodesk.Revit.DB.IFC import *\r\n\r\n# Import Dynamo Services\r\nclr.AddReference('DynamoServices')\r\nfrom Dynamo import Events as DynamoEvents\r\n\r\n# Active Dynamo Workspace Path\r\nworkspaceFullPath = DynamoEvents.ExecutionEvents.ActiveSession.CurrentWorkspacePath\r\nworkspacePath = '\\\\'.join(workspaceFullPath.split('\\\\')[0:-1])\r\n\r\n# Import pydynamo\r\npydynamoPath = workspacePath + \"\\\\pydynamo\"\r\nsys.path.append(pydynamoPath)\r\nimport pydynamo as pydyn\r\n\r\n# REFERENCES AND IMPORTS\r\n# END<<<<<\r\n\r\n# FUNCTIONS\r\n# BEGIN>>>>>\r\n\r\n# <<< Your classes and functions here >>>\r\n\r\n# FUNCTIONS\r\n# END<<<<<\r\n\r\n# INPUTS AND VARIABLES DECLARATIONS\r\n# BEGIN>>>>>\r\n\r\ndoc = DocumentManager.Instance.CurrentDBDocument\r\n\r\ninputFromDynamo = IN[0]\r\n\r\nresult = []\r\n\r\n# INPUTS AND VARIABLES DECLARATIONS\r\n# END<<<<<\r\n\r\n# MAIN CODE\r\n# BEGIN>>>>>\r\n\r\ntry:\r\n    errorReport = None\r\n    \r\n    pydyn.RevitTaskDialog(_MainContent=pydyn.HelloWorld())\r\n    \r\n    result = [\r\n        inputFromDynamo,\r\n        pydyn.PyDynamoVars.RevitVersionName,\r\n        pydyn.PyDynamoVars.RevitVersionNumber\r\n    ]\r\n\r\nexcept Exception as e:\r\n    # if error occurs anywhere in the process catch it\r\n    errorReport = traceback.format_exc()\r\n\r\n# Assign your output to the OUT variable\r\nif errorReport is None:\r\n    OUT = result\r\nelse:\r\n    OUT = errorReport\r\n# MAIN CODE\r\n# END<<<<<",
+      "Engine": "Unknown",
+      "EngineName": "IronPython3",
+      "VariableInputPorts": true,
+      "Id": "145dc02be2084ae29e32ed51495d1cdc",
+      "NodeType": "PythonScriptNode",
+      "Inputs": [
+        {
+          "Id": "c1ec042dc93c49e0baddc4aa7b07d3b8",
+          "Name": "IN[0]",
+          "Description": "Input #0",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "820559506a8b40cb8a103db36d92f422",
+          "Name": "OUT",
+          "Description": "Result of the python script",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "Runs an embedded Python script."
+    },
+    {
+      "ConcreteType": "CoreNodeModels.Input.BoolSelector, CoreNodeModels",
+      "Id": "dfd3d74d07b94f2587bf0bc419e44f4b",
+      "NodeType": "BooleanInputNode",
+      "Inputs": [],
+      "Outputs": [
+        {
+          "Id": "ffe2635e3325436089888cc2008bdd89",
+          "Name": "",
+          "Description": "Boolean",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "Enables selection between True and False",
+      "InputValue": true
+    }
+  ],
+  "Connectors": [
+    {
+      "Start": "ffe2635e3325436089888cc2008bdd89",
+      "End": "c1ec042dc93c49e0baddc4aa7b07d3b8",
+      "Id": "5ac214fd812c427f8622e2fcf0a430d4",
+      "IsHidden": "False"
+    }
+  ],
+  "Dependencies": [],
+  "NodeLibraryDependencies": [],
+  "Thumbnail": "",
+  "GraphDocumentationURL": null,
+  "ExtensionWorkspaceData": [
+    {
+      "ExtensionGuid": "28992e1d-abb9-417f-8b1b-05e053bee670",
+      "Name": "Properties",
+      "Version": "2.19",
+      "Data": {}
+    },
+    {
+      "ExtensionGuid": "DFBD9CC0-DB40-457A-939E-8C8555555A9D",
+      "Name": "Generative Design",
+      "Version": "6.1",
+      "Data": {}
+    }
+  ],
+  "Author": "",
+  "Linting": {
+    "activeLinter": "None",
+    "activeLinterId": "7b75fb44-43fd-4631-a878-29f4d5d8399a",
+    "warningCount": 0,
+    "errorCount": 0
+  },
+  "Bindings": [],
+  "View": {
+    "Dynamo": {
+      "ScaleFactor": 1.0,
+      "HasRunWithoutCrash": true,
+      "IsVisibleInDynamoLibrary": true,
+      "Version": "2.19.3.6394",
+      "RunType": "Manual",
+      "RunPeriod": "1000"
+    },
+    "Camera": {
+      "Name": "_Background Preview",
+      "EyeX": -17.0,
+      "EyeY": 24.0,
+      "EyeZ": 50.0,
+      "LookX": 12.0,
+      "LookY": -13.0,
+      "LookZ": -58.0,
+      "UpX": 0.0,
+      "UpY": 1.0,
+      "UpZ": 0.0
+    },
+    "ConnectorPins": [],
+    "NodeViews": [
+      {
+        "Id": "145dc02be2084ae29e32ed51495d1cdc",
+        "Name": "Python Script",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "ShowGeometry": true,
+        "X": 714.22432633061987,
+        "Y": 496.41558260642978
+      },
+      {
+        "Id": "dfd3d74d07b94f2587bf0bc419e44f4b",
+        "Name": "Boolean",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "ShowGeometry": true,
+        "X": 424.65997026901704,
+        "Y": 492.83942576131665
+      }
+    ],
+    "Annotations": [],
+    "X": -297.363095859375,
+    "Y": -349.74265035937492,
+    "Zoom": 1.545620359375
+  }
+}
