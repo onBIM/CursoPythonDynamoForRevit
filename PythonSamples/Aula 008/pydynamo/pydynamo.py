@@ -99,12 +99,15 @@ def flatten(listToFlatten):
         return flatten(listToFlatten[0]) + flatten(listToFlatten[1:])
     return listToFlatten[:1] + flatten(listToFlatten[1:])
 
+def SystemListToPythonList(sysList):
+    return [item for item in sysList]
+
 def ListToString(mylist, separator):
     """
     type: list -> str
      Turns a list into string
     """
-    return separator.join([str(item) for item in mylist])
+    return separator.join([str(item) for item in ToList(mylist)])
 
 def StringToList(mystring, separator):
     return mystring.split(separator)
@@ -177,7 +180,7 @@ def RevitTaskDialog(
     # ========================================================
     # Command link stuffs
     # ========================================================
-    # td.AddCommandLink(TaskDialogCommandLinkId.CommandLink1, "This is 'CommandLink1'.")
+    td.AddCommandLink(TaskDialogCommandLinkId.CommandLink1, "Send log email to BIM Manager.")
     # td.AddCommandLink(TaskDialogCommandLinkId.CommandLink2, "This is 'CommandLink2'.")
     # td.AddCommandLink(TaskDialogCommandLinkId.CommandLink3, "This is 'CommandLink3'.")
     # td.AddCommandLink(TaskDialogCommandLinkId.CommandLink4, "This is 'CommandLink4'.")
@@ -466,7 +469,10 @@ class Collectors:
             
     def GetAllValidRooms(self):
         """
-        Gets all valid Rooms from Document
+        @return: A list of valid rooms in the document filtered based on the following criteria:
+                 - The room is a valid object
+                 - The room's area is greater than zero
+                 - The room's bounding box is not None
         """
         validRooms =\
             FilteredElementCollector(self.doc)\
