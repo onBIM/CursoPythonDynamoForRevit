@@ -1,4 +1,4 @@
-# Aula 001
+# Sample
 
 <!--Writerside adds this topic when you create a new documentation project.
 You can use it as a sandbox to play with Writerside features, and remove it from the TOC when you don't need it anymore.-->
@@ -36,8 +36,9 @@ To add switchable content, you can make use of tabs (inject them by starting to 
         <code-block lang="plain text">![Alt Text](new_topic_options.png){ width=450 }</code-block>
     </tab>
     <tab title="Semantic markup">
-        <code-block lang="xml">
-            <![CDATA[<img src="new_topic_options.png" alt="Alt text" width="450px"/>]]></code-block>
+      <code-block lang="xml">
+         <![CDATA[<img src="new_topic_options.png" alt="Alt text" width="450px"/>]]>
+      </code-block>
     </tab>
 </tabs>
 
@@ -77,3 +78,39 @@ You can also always email us at [writerside@jetbrains.com](mailto:writerside@jet
         <a href="https://plugins.jetbrains.com/plugin/20158-writerside/docs/configure-search.html">Configure Search</a>
     </category>
 </seealso>
+
+A How-to article is an action-oriented type of document.
+It explains how to perform a specific task or solve a problem, and usually contains a sequence of steps.
+Start with a short introductory paragraph that explains what users will accomplish by following this procedure,
+what they need to perform it for, or define the target audience of the doc.
+
+> **Highlight important information**
+>
+> You can change the element to *tip* or *warning* by renaming the style attribute below.
+>
+{style="note"}
+
+## Before you start
+
+It is good practice to list the prerequisites that are required or recommended.
+
+Make sure that:
+- First prerequisite
+- Second prerequisite
+
+## How to perform a task
+
+Some introductory information.
+
+1. Step with a code block
+
+   ```bash
+    run this --that
+   ```
+
+2. Step with a [link](https://www.jetbrains.com)
+
+3. Step with a list.
+   - List item
+   - List item
+   - List item

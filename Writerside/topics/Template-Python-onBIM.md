@@ -242,6 +242,7 @@ if errorReport is None:
 else:
   OUT = errorReport
 ```
+{collapsed-title="Código principal" collapsible="true" default-state="collapsed"}
 
 > Só é necessário usar uma `Trasaction` se você for alterar o modelo do Revit. 
 > 
@@ -255,150 +256,36 @@ else:
 
 ## Como usar o Template no PyCharm
 
-Baixe o arquivo do template no link abaixo:
+Baixe o arquivo do template no link abaixo e em seguida siga as instruções para configurá-lo no PyCharm.
 
-### **Template onBIM para IronPython do Dynamo do Revit** {collapsible="true"}
-```python
-# by onBIM Technology
-# www.onbim.net
-# file name: ./${DIR_PATH}/${FILE_NAME}
+<resource src="onBIM-Template.py"/>
 
-# REFERENCES AND IMPORTS
-# BEGIN>>>>>
-
-import clr
-import System
-
-# <<< Python Modules >>>
-# BEGIN
-
-# Import traceback module from Iron Python
-import traceback
-
-# END
-
-# Import System Libraries
-clr.AddReference("System.Core")
-from System.Collections.Generic import List as SystemList
-
-# Import Linq
-clr.ImportExtensions(System.Linq)
-
-# Import Dynamo Library Nodes - Geometry
-clr.AddReference('ProtoGeometry')
-from Autodesk.DesignScript import Geometry as DynamoGeometry
-
-# Import Dynamo Library Nodes - Core
-clr.AddReference('DSCoreNodes')
-from DSCore import List as DynamoList
-
-# Import Dynamo Library Nodes - Core
-clr.AddReference('DSCoreNodes')
-from DSCore import Color as DynamoColor
-
-# Import Dynamo Geometry Color
-# https://forum.dynamobim.com/t/geometrycolor-bygeometrycolor-inside-python/52724
-clr.AddReference('GeometryColor')
-from Modifiers import GeometryColor as DynamoGeometryColorize
-
-# Import Dynamo Library Nodes - Revit
-clr.AddReference("RevitNodes")
-import Revit as RevitNodes
-
-# Import ToDSType(bool) extension method
-clr.ImportExtensions(RevitNodes.Elements)
-clr.ImportExtensions(RevitNodes.GeometryConversion)
-
-# Import DocumentManager and TransactionManager
-clr.AddReference("RevitServices")
-import RevitServices
-from RevitServices.Persistence import DocumentManager
-from RevitServices.Transactions import TransactionManager
-
-# Import Revit API
-clr.AddReference("RevitAPI")
-import Autodesk
-from Autodesk.Revit.DB import *
-
-# Import Revit User Interface API
-clr.AddReference("RevitAPIUI")
-from Autodesk.Revit.UI import *
-
-# Import Revit IFC API
-# https://forum.dynamobim.com/t/ifcexportutils/4833/7?u=ricardo_freitas
-clr.AddReference('RevitAPIIFC')
-from Autodesk.Revit.DB.IFC import *
-
-# Import Dynamo Services
-clr.AddReference('DynamoServices')
-from Dynamo import Events as DynamoEvents
-
-# Active Dynamo Workspace Path
-workspaceFullPath = DynamoEvents.ExecutionEvents.ActiveSession.CurrentWorkspacePath
-workspacePath = '\\'.join(workspaceFullPath.split('\\')[0:-1])
-
-# REFERENCES AND IMPORTS
-# END<<<<<
-
-# FUNCTIONS
-# BEGIN>>>>>
-
-# <<< Your classes and functions here >>>
-
-# FUNCTIONS
-# END<<<<<
-
-# INPUTS AND VARIABLES DECLARATIONS
-# BEGIN>>>>>
-
-doc = DocumentManager.Instance.CurrentDBDocument
-uiapp = DocumentManager.Instance.CurrentUIApplication
-app = uiapp.Application
-uidoc = DocumentManager.Instance.CurrentUIApplication.ActiveUIDocument
-
-inputFromDynamo = IN[0]
-
-result = []
-
-# INPUTS AND VARIABLES DECLARATIONS
-# END<<<<<
-
-# MAIN CODE
-# BEGIN>>>>>
-
-try:
-    errorReport = None
-    
-    # transaction
-    TransactionManager.Instance.EnsureInTransaction(doc)
-    
-    # Your Code Here
-    
-    TransactionManager.Instance.TransactionTaskDone()
-
-except Exception as e:
-    # if error occurs anywhere in the process catch it
-    errorReport = traceback.format_exc()
-
-# Assign your output to the OUT variable
-if errorReport is None:
-    OUT = result
-else:
-    OUT = errorReport
-# MAIN CODE
-# END<<<<<
-```
-
-### Configuração
-
-1. Clique no menu `File`
-2. Selecione `Settings`
-3. Na janela de configurações, expanda o item `Editor`
-4. Selecione `File and Code Templates`
-5. Clique no botão `+` para adicionar um novo template
-6. Digite um nome para seu template
-7. Cole o conteúdo do arquivo `onBIM Template.py` no campo de texto
-8. Clique em `Apply` e depois em `OK`
+<procedure title="Configuração" id="pycharm-file-template-config">
+    <step>
+        <p>Clique no menu <ui-path>File</ui-path></p>
+    </step>
+    <step>
+        <p>Selecione <ui-path>Settings</ui-path></p>
+    </step>
+    <step>
+        <p>Na janela de configurações, expanda o item <ui-path>Editor</ui-path></p>
+    </step>
+    <step>
+        <p>Selecione <ui-path>File and Code Templates</ui-path></p>
+    </step>
+    <step>
+        <p>Clique no botão <ui-path>+</ui-path> para adicionar um novo template</p>
+    </step>
+    <step>
+        <p>Digite um nome para seu template</p>
+    </step>
+    <step>
+        <p>Cole o conteúdo do arquivo <resource src="onBIM-Template.py"/> no campo de texto</p>
+    </step>
+    <step>
+        <p>Clique em <ui-path>Apply</ui-path> e depois em <ui-path>OK</ui-path></p>
+    </step>
+</procedure>
 
 ![Passo 01](../images/config_py_temp_step_00.png) {style="block"}
 
@@ -406,12 +293,20 @@ else:
 
 ![Passo 03](../images/config_py_temp_step_02.png) {style="block"}
 
-### Criando um novo arquivo a partir do Template
-
-1. Clique com o botão direito na pasta onde deseja criar o arquivo
-2. Selecione `New`
-3. Selecione o nome do template que você criou
-4. Digite o nome do novo arquivo e clique em `OK`
+<procedure title="Criando um novo arquivo a partir do Template">
+  <step>
+    <p>Clique com o botão direito na pasta onde deseja criar o arquivo</p>
+  </step>
+    <step>
+        <p>Selecione <ui-path>New</ui-path></p>
+    </step>
+    <step>
+        <p>Selecione o nome do template que você criou</p>
+    </step>
+    <step>
+        <p>Digite o nome do novo arquivo e clique em <ui-path>OK</ui-path></p>
+    </step>
+</procedure>
 
 ![creating new file](../images/creating_new_file_from_template.png)
 

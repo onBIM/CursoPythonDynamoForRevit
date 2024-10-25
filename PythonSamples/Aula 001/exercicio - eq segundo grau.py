@@ -4,7 +4,7 @@ a = float(input("Digite o coeficiente a: "))
 b = float(input("Digite o coeficiente b: "))
 c = float(input("Digite o coeficiente c: "))
 
-# TODO: valida os inputs
+# TODO: validar os inputs
 
 # imprima a equação
 aSignal = "+ " if a >= 0 else "-"

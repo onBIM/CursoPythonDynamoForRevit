@@ -25,6 +25,12 @@ Se sim, use IronPython.
 
 **Numa mesma rotina de Dynamo você pode ter Nodes Python Script que usam CPython e IronPython.**
 
-### Como escolher a engine Python no Dynamo?
+## Como escolher a engine Python no Dynamo?
 
-![cpython_vs_ironpython.png](cpython_vs_ironpython.png)
+![cpython_vs_ironpython.png](cpython_vs_ironpython.png) {style="block"}
+
+- Clique com o botão direito no nó Python Script, selecione `Python Engine Version` e escolha a engine desejada.
+
+ou alternativamente:
+
+- Dentro do Editor Python, clique na caixa _drop-down_ e escolha a engine desejada.
