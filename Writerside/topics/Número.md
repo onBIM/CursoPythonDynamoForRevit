@@ -4,11 +4,7 @@
 
 Os tipos de dados numéricos que podem ser inteiros ou decimais.
 
-### int
-
 Números inteiros: `int()`
-
-### float
 
 Números decimais: `float()`
 

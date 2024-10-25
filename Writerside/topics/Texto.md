@@ -2,6 +2,8 @@
 
 ## Definição no Python
 
+`str()`
+
 Strings são pedaços de texto. 
 
 Elas podem ser definidas por qualquer coisa entre aspas(" " ou ' ').

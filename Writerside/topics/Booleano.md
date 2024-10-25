@@ -2,6 +2,8 @@
 
 ## Definição no Python
 
+`bool()`
+
 Valores booleanos são dois objetos constantes **Falso** e **Verdadeiro**.
 No contexto numérico eles se comportam como os inteiros 0 e 1, respectivamente.
 A função de construção `bool()` pode ser usada para converter qualquer valor para um Boolean,
