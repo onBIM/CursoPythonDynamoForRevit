@@ -15,10 +15,11 @@
         <toc-element topic="Template-Python-onBIM.md"/>
     </toc-element>
     <toc-element topic="Aula-002.md">
-        <toc-element topic="Tipos-básicos-de-dados.md">
-            <toc-element topic="Booleano.md"/>
-            <toc-element topic="Número.md"/>
-            <toc-element topic="Texto.md"/>
-        </toc-element>
+        <toc-element topic="Booleano.md"/>
+        <toc-element topic="Número.md"/>
+        <toc-element topic="Texto.md"/>
+    </toc-element>
+    <toc-element topic="Aula-003.md">
+        <toc-element topic="functions-in-python.md"/>
     </toc-element>
 </instance-profile>

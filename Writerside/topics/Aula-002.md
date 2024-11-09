@@ -1,3 +1,34 @@
 # Aula 002
 
-Start typing here...
+## Visão Geral dos Tópicos: Booleanos, Texto e Números
+
+### Introdução
+
+Nesta aula vamos explorar três tópicos fundamentais na programação em Python: Booleanos, Texto e Números.
+
+
+Cada um são os mais básicos e essenciais tipos de dados em Python, e são usados em praticamente todos os programas.
+Vamos ver como manipulá-los, as principais operações básicas e avançadas, e também vamos fazer alguns exercícios
+práticos.
+
+### Booleanos
+
+- **Definição e Utilização**: aprenderemos que valores booleanos são essenciais para decisões lógicas em nossos programas, representados por `True` e `False`.
+- **Operadores**: entenderemos como usar operadores de comparação (`==`, `!=`, `<`, `>`) e operadores lógicos (`and`, `or`, `not`, `in`) para criar expressões booleanas.
+- **Controle de Fluxo**: exploraremos estruturas condicionais (`if`, `elif`, `else`) para controlar o fluxo de execução de nossos programas.
+- **Aplicações Práticas**: veremos usos práticos de booleanos tanto em Python puro quanto em APIs como a do Revit, onde booleanos podem ativar ou desativar funcionalidades específicas.
+
+### Números
+
+- **Definição e Tipos**: explicaremos os tipos de dados numéricos em Python, principalmente inteiros (`int`) e decimais (`float`), e a importância de cada tipo.
+- **Operações Básicas**: demonstrar operações matemáticas básicas incluindo soma, subtração, multiplicação, divisão, divisão inteira e resto da divisão.
+- **Funções Matemáticas**: utilização do módulo `math` para operações matemáticas avançadas, como calcular raízes quadradas.
+- **Bibliotecas Adicionais**: exploraremos como usar bibliotecas específicas como Dynamo e System para operações matemáticas avançadas.
+- **Exercício Prático**: desenvolveremos um script para calcular as raízes de uma equação do segundo grau, aplicando a fórmula discriminante e a fórmula das raízes.
+
+### Texto
+
+- **Definição e Manipulação**: strings são sequências de caracteres. Aprenderemos a defini-las e manipulá-las usando diversas operações básicas e avançadas.
+- **Operações Básicas**: cobrir operações essenciais como calcular comprimento (`len`), encontrar índices (`index`), contagem (`count`), fatiamento (`slice`), alteração de capitalização (`upper`, `lower`) e divisão de strings (`split`).
+- **Manipulação Avançada**: manipular strings para testar prefixos e sufixos (`startswith`, `endswith`) e outras operações úteis.
+- **Exercício Prático**: aplicaremos esses conhecimentos para melhorar a visualização dos resultados de equações do segundo grau em um exercício.

@@ -14,4 +14,15 @@
         <description>Created after removal of "Empty MD Topic" from Aula 001</description>
         <accepts>Empty-MD-Topic.html</accepts>
     </rule>
+    <rule id="3733db0">
+        <description>
+            <![CDATA[Created after removal of "<markdown-file.md>" from Conteúdo do Curso Python para Dynamo do Revit]]></description>
+        <accepts>markdown-file.html</accepts>
+    </rule>
+    <rule id="53197d23">
+        <description>Created after removal of "Tipos básicos de dados" from Conteúdo do Curso Python para Dynamo do
+            Revit
+        </description>
+        <accepts>Tipos-básicos-de-dados.html</accepts>
+    </rule>
 </rules>

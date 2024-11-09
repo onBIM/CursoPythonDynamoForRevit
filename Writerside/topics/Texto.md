@@ -84,7 +84,7 @@ Divide a string com base no caractere passado como argumento.
 umaspalavras = umastring.split(" ")
 ```
 
-## Exercício
+## Exercício {id="eq-segundo-grau-com-texto"}
 Melhorar os resultados do exercício da [Equação do Segundo Grau](Número.md#number-exercise)
 
 Os resultados devem mostrar a fórmula da equação e também os resultados das raízes, caso existam.
