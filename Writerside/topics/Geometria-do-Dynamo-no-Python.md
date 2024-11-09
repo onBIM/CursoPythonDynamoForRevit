@@ -76,10 +76,46 @@ Fazer uma treliça paramétrica.
 2. Linhas dos montantes
 3. Linhas das Diagonais
 
-**Use a imagem abaixo como referência:**
+> **Dica** 💡
+>
+> Use a imagem abaixo como referência
 
 ![truss](truss.png)
 
+### Resultado - Exercício 1
+
+Ao final do exercício, você deve ter algo parecido com a imagem abaixo:
+
+![truss-in-dynamo.png](truss-in-dynamo.png)
+
+Baixe a rotina aqui 👉
+<resource src="truss.dyn"/>
+
 ## Exercício 2
 
-Expandir o exercício anterior para funcionar em uma coberta completa
+Expandir o exercício anterior para funcionar em uma coberta completa.
+
+> **Dica** 💡 
+> 
+> Use a família da supercície de coberta para fazer a treliça.
+> 
+> Baixe a família da coberta aqui 👉
+> <resource src="Surface.rfa"/>
+
+> Modelada no Revit 2024. Portanto, só abre nessa versão ou superior.
+> 
+{style="warning"}
+
+### Resultado - Exercício 2
+
+Ao final do exercício, você deve ter algo parecido com a imagem abaixo:
+
+![organic-roof-trusses.png](organic-roof-trusses.png)
+
+> A visualização colorida e transparente da coberta não é obrigatória. Foi mostrada dessa forma
+> para facilitar a visualização da treliça.
+> 
+{style="note"}
+
+Baixe a rotina aqui 👉
+<resource src="Coberta-Organica.dyn"/>
