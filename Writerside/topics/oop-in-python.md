@@ -113,7 +113,9 @@ mago = Mago("Gandalf", 1000, "Istari")
 Para acessar um atributo de um objeto, você usa a notação de ponto.
 
 ```python
-print(mago.Nome)  # Isso imprimirá "Gandalf"
+nome_do_mago = mago.Nome
+
+print(nome_do_mago)  # Isso imprimirá "Gandalf"
 ```
 
 ### Acessando Métodos
