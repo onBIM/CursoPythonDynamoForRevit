@@ -23,4 +23,7 @@
         <toc-element topic="functions-in-python.md"/>
         <toc-element topic="oop-in-python.md"/>
     </toc-element>
+    <toc-element topic="Aula-004.md">
+        <toc-element topic="Geometria-do-Dynamo-no-Python.md"/>
+    </toc-element>
 </instance-profile>
