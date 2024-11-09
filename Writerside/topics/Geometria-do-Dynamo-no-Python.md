@@ -82,14 +82,13 @@ Fazer uma treliça paramétrica.
 
 ![truss](truss.png)
 
-### Resultado - Exercício 1
+### Resultado {id="resultado-exercicio-1"}
 
-Ao final do exercício, você deve ter algo parecido com a imagem abaixo:
+Ao final do exercício você deve ter algo parecido com a imagem abaixo:
 
 ![truss-in-dynamo.png](truss-in-dynamo.png)
 
-Baixe a rotina aqui 👉
-<resource src="truss.dyn"/>
+Baixe a rotina aqui 👉 <resource src="truss.dyn"/>
 
 ## Exercício 2
 
@@ -99,16 +98,15 @@ Expandir o exercício anterior para funcionar em uma coberta completa.
 > 
 > Use a família da supercície de coberta para fazer a treliça.
 > 
-> Baixe a família da coberta aqui 👉
-> <resource src="Surface.rfa"/>
+> Baixe a família da coberta aqui 👉 <resource src="Surface.rfa"/>
 
 > Modelada no Revit 2024. Portanto, só abre nessa versão ou superior.
 > 
 {style="warning"}
 
-### Resultado - Exercício 2
+### Resultado {id="resultado-exercicio-2"}
 
-Ao final do exercício, você deve ter algo parecido com a imagem abaixo:
+Ao final do exercício você deve ter algo parecido com a imagem abaixo:
 
 ![organic-roof-trusses.png](organic-roof-trusses.png)
 
@@ -117,5 +115,4 @@ Ao final do exercício, você deve ter algo parecido com a imagem abaixo:
 > 
 {style="note"}
 
-Baixe a rotina aqui 👉
-<resource src="Coberta-Organica.dyn"/>
+Baixe a rotina aqui 👉 <resource src="Coberta-Organica.dyn"/>
