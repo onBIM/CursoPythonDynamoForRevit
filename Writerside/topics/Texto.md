@@ -6,7 +6,7 @@
 
 Strings são pedaços de texto. 
 
-Elas podem ser definidas por qualquer coisa entre aspas(" " ou ' ').
+Elas podem ser definidas por qualquer coisa entre aspas duplas `" "` ou simples `' '`.
 
 Podemos dizer também que strings são uma sequência/_array_ de caracteres. 
 Por isso, muitas vezes são tratados dessa forma.

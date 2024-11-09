@@ -121,37 +121,41 @@ class RoomData:
         calculatorResults = calculator.CalculateSpatialElementGeometry(self.Room)
         roomSolid = calculatorResults.GetGeometry()
         finishes = []
+        
         for face in roomSolid.Faces:
             # Retorna face vazia se não encontrar um elemento delimitador do Room.
-            # Por exemplo um Room sem forro
+            # Por exemplo, um Room sem forro
             boundaryFaces = calculatorResults.GetBoundaryFaceInfo(face)
-            if boundaryFaces != []:
-                for bface in boundaryFaces:
-                    faceType = bface.SubfaceType
+            
+            if not boundaryFaces:
+                continue
+                
+            for bface in boundaryFaces:
+                faceType = bface.SubfaceType
+                
+                if (subFaceType is not None) and (faceType != subFaceType):
+                    continue
+                
+                hostId = bface.SpatialBoundaryElement.HostElementId
+                hostDoc = doc
+                
+                hostFromLink = True if hostId.IntegerValue == -1 else False
+                
+                if includeLinkedElements and hostFromLink:
+                    # Get host Id from link
+                    linkedElementId = bface.SpatialBoundaryElement.LinkedElementId
+                    hostId = linkedElementId
                     
-                    if (subFaceType is not None) and (faceType != subFaceType):
-                        continue
-                    
-                    hostId = bface.SpatialBoundaryElement.HostElementId
-                    hostDoc = doc
-                    
-                    hostFromLink = True if hostId.IntegerValue == -1 else False
-                    
-                    if includeLinkedElements and hostFromLink:
-                        # Get host Id from link
-                        linkedElementId = bface.SpatialBoundaryElement.LinkedElementId
-                        hostId = linkedElementId
-                        
-                        # Get host linked document
-                        linkInstanceId = bface.SpatialBoundaryElement.LinkInstanceId
-                        linkedDocument = doc.GetElement(linkInstanceId).GetLinkDocument()
-                        hostDoc = linkedDocument
-                    
-                    hostElement = hostDoc.GetElement(hostId)
-                    
-                    if hostElement is not None:
-                        hostElementType = hostDoc.GetElement(hostElement.GetTypeId())
-                        finishes.append(hostElement)
+                    # Get host linked document
+                    linkInstanceId = bface.SpatialBoundaryElement.LinkInstanceId
+                    linkedDocument = doc.GetElement(linkInstanceId).GetLinkDocument()
+                    hostDoc = linkedDocument
+                
+                hostElement = hostDoc.GetElement(hostId)
+                
+                if hostElement is not None:
+                    hostElementType = hostDoc.GetElement(hostElement.GetTypeId())
+                    finishes.append(hostElement)
         
         return finishes.Select(lambda f: f.ToDSType(True))       
         
