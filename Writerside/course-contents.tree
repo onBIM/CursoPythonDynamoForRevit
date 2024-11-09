@@ -21,5 +21,6 @@
     </toc-element>
     <toc-element topic="Aula-003.md">
         <toc-element topic="functions-in-python.md"/>
+        <toc-element topic="oop-in-python.md"/>
     </toc-element>
 </instance-profile>
