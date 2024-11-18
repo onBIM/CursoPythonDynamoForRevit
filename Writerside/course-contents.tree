@@ -30,4 +30,8 @@
         <toc-element topic="Conceitos-Basicos.md"/>
         <toc-element topic="Conceitos-Sobre-Familias.md"/>
     </toc-element>
+    <toc-element topic="Aula-006.md">
+        <toc-element topic="Fluxo-geral-de-rotinas.md"/>
+        <toc-element topic="Coleta-de-Elementos.md"/>
+    </toc-element>
 </instance-profile>

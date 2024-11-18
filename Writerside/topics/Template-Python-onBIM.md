@@ -50,92 +50,104 @@ Seções do template onBIM:
 
 ### Imports
 
-```python
-import clr
-```
-**Importa o módulo de Common Language Runtime (CLR) do Python.**
+#### Importa o módulo de Common Language Runtime (CLR) do Python.
 
 Esse módulo é necessário para importar as demais bibliotecas que não são do Python, como referências para o .NET,
 API do Revit e do Dynamo.
 
 ```python
-import System
+import clr
 ```
-**Importa o módulo System do Windows.**
+
+#### Importa o módulo System do Windows.
 
 Esse módulo é necessário para importar as classes e funções do .NET.
 
 ```python
-import traceback
+import System
 ```
-**Importa o módulo traceback.**
+#### Importa o módulo traceback.
 
 Esse módulo é necessário para imprimir mensagens de erro no console.
+
+```python
+import traceback
+```
+#### Adiciona a referência para List do .NET.
+
+Perceba é usado o _alias_ `SystemList` para evitar conflitos com a classe List de outras bibliotecas.
 
 ```python
 clr.AddReference("System.Core")
 from System.Collections.Generic import List as SystemList
 ```
-**Adiciona a referência para List do .NET.**
 
-Perceba é usado o _alias_ `SystemList` para evitar conflitos com a classe List de outras bibliotecas.
+#### Importa os métodos de extensão do LINQ.
+
+Linq é uma biblioteca do .NET que permite realizar consultas em coleções de objetos.
 
 ```python
 clr.ImportExtensions(System.Linq)
 ```
-**Importa os métodos de extensão do LINQ.**
 
-Linq é uma biblioteca do .NET que permite realizar consultas em coleções de objetos.
+#### Adiciona referência para os nodes de Geometria do Dynamo.
 
-[//]: # (TODO: Adicionar link do tópico e o texto Faleremos mais sobre LINQ no tópico. )
+Com esse import você poderá usar os nodes de geometria do Dynamo no seu script.
 
 ```python
 clr.AddReference('ProtoGeometry')
 from Autodesk.DesignScript import Geometry as DynamoGeometry
 ```
-**Adiciona referência para os nodes de Geometria do Dynamo.**
-
-Com esse import você poderá usar os nodes de geometria do Dynamo no seu script.
 
 ![dyn_geo_import.png](../images/dyn_geo_import.png)
+
+#### Adiciona referência para os _nodes_ de Listas do Dynamo.
 
 ```python
 clr.AddReference('DSCoreNodes')
 from DSCore import List as DynamoList
 ```
-**Adiciona referência para os _nodes_ de Listas do Dynamo.**
 
 ![dscore_list_nodes_import.png](../images/dscore_list_nodes_import.png)
+
+#### Adiciona referência para os _nodes_ de cores do Dynamo.
 
 ```python
 clr.AddReference('DSCoreNodes')
 from DSCore import Color as DynamoColor
 ```
-**Adiciona referência para os _nodes_ de Cores do Dynamo.**
 
 ![dscore_color_nodes_import.png](../images/dscore_color_nodes_import.png)
+
+#### Adiciona referência para os _nodes_ de Colorização de Geometria do Dynamo.
 
 ```python
 clr.AddReference('GeometryColor')
 from Modifiers import GeometryColor as DynamoGeometryColorize
 ```
-**Adiciona referência para os _nodes_ de Colorização de Geometria do Dynamo.**
 
 ![geometry_colorize_import.png](../images/geometry_colorize_import.png)
+
+#### Adiciona referência para os _nodes_ de Revit do Dynamo.
 
 ```python
 clr.AddReference("RevitNodes")
 import Revit as RevitNodes
 ```
-**Adiciona referência para os _nodes_ de Revit do Dynamo.**
 
 ![revit_nodes_import.png](../images/revit_nodes_import.png)
+
+#### Importa os métodos de extensão para conversão de Elementos e Geometria entre o Revit e o Dynamo.
 
 ```python
 clr.ImportExtensions(RevitNodes.Elements)
 clr.ImportExtensions(RevitNodes.GeometryConversion)
 ```
-**Importa os métodos de extensão para conversão de Elementos e Geometria entre o Revit e o Dynamo.**
+
+#### Adiciona referência para os serviços do Dynamo que permitem acessar o documento do Revit e gerenciar transações.
+
+- O documento do Revit é o arquivo de projeto que está sendo editado.
+- As transações são operações necessárias para alterar o modelo do Revit.
 
 ```python
 clr.AddReference("RevitServices")
@@ -143,43 +155,42 @@ import RevitServices
 from RevitServices.Persistence import DocumentManager
 from RevitServices.Transactions import TransactionManager
 ```
-**Adiciona referência para os serviços do Dynamo que permitem acessar o documento do Revit e gerenciar transações.**
 
-- O documento do Revit é o arquivo de projeto que está sendo editado.
-- As transações são operações necessárias para alterar o modelo do Revit.
+#### Adiciona referência para a API do Revit.
+
+A API do Revit é um conjunto de classes e métodos que permitem acessar e modificar o modelo do Revit.
 
 ```python
 clr.AddReference("RevitAPI")
 import Autodesk
 from Autodesk.Revit.DB import *
 ```
-**Adiciona referência para a API do Revit.**
 
-A API do Revit é um conjunto de classes e métodos que permitem acessar e modificar o modelo do Revit.
+#### Adiciona referência para a interface de usuário da API do Revit.
+
+Essa biblioteca permite criar janelas, barras de ferramentas e outros elementos de interface gráfica.
 
 ```python
 clr.AddReference("RevitAPIUI")
 from Autodesk.Revit.UI import *
 ```
-**Adiciona referência para a interface de usuário da API do Revit.**
 
-Essa biblioteca permite criar janelas, barras de ferramentas e outros elementos de interface gráfica.
-
-```python
-clr.AddReference('RevitAPIIFC')
-from Autodesk.Revit.DB.IFC import *
-```
-**Adiciona referência para a API IFC do Revit.**
+#### Adiciona referência para a API IFC do Revit.
 
 Essa biblioteca permite acessar recursos especiais para importação e exportação de arquivos IFC.
 
 Esses recursos podem ser utilizados também para manipular elementos nativos do Revit
 
 ```python
+clr.AddReference('RevitAPIIFC')
+from Autodesk.Revit.DB.IFC import *
+```
+#### Adiciona referência para os eventos do Dynamo.
+
+```python
 clr.AddReference('DynamoServices')
 from Dynamo import Events as DynamoEvents
 ```
-**Adiciona referência para os eventos do Dynamo.**
 
 Uma das coisas importantes que dá para capturar com esses eventos é o acesso ao Documento do Dynamo, como mostrado
 abaixo:
@@ -188,6 +199,7 @@ abaixo:
 workspaceFullPath = DynamoEvents.ExecutionEvents.ActiveSession.CurrentWorkspacePath
 workspacePath = '\\'.join(workspaceFullPath.split('\\')[0:-1])
 ```
+
 ### Variáveis que dão acesso a recursos do Revit.
 
 ```python
@@ -252,7 +264,7 @@ else:
 > 
 > `TransactionManager.Instance.TransactionTaskDone()`.
 > 
-{style="note"}
+{style="warning"}
 
 ## Como usar o Template no PyCharm
 
