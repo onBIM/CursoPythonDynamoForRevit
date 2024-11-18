@@ -25,7 +25,7 @@ No Revit temos a seguinte hierarquia:
 
 Veja a imagem abaixo
 
-![revit-elements-hierarchy.png](revit-elements-hierarchy.png) {id="revit-elements-hierarchy.png"}
+<img src="revit-elements-hierarchy.png" alt="Revit Elements Hierarchy" id="revit-elements-hierarchy-image"/>
 
 ### Category
 
@@ -49,14 +49,14 @@ do dia-a-dia? 🤯
 
 A família é um conjunto de elementos (_Types_) que compartilham características comuns. 
 
-Por exemplo, na [imagem acima](#revit-elements-hierarchy.png), temos a família _Rectangular Column_ que possui 
+Na [imagem acima](#revit-elements-hierarchy-image), temos a família _Rectangular Column_ que possui 
 os _Types_ **_450 x 600 mm_** e **_600 x 700 mm_**,
 
 ### Type
 
 O tipo representa uma variação de uma família. No tipo estão definidas as propriedades que serão comuns entre as instâncias.
 
-Por exemplo, na [imagem acima](#revit-elements-hierarchy.png), temos o _Type_ **_450 x 600 mm_** da família _Rectangular Column_.
+Na [imagem acima](#revit-elements-hierarchy-image), temos o _Type_ **_450 x 600 mm_** da família _Rectangular Column_.
 Nele estão contidas as propriedades que são comuns a todas as instâncias desse tipo. Como a altura, a largura, o material, etc.
 
 ### Instance

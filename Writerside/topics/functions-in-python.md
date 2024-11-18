@@ -47,7 +47,6 @@ print(resultado)  # Isso imprimirá None
 Os argumentos de uma função em Python são valores que você passa para a função quando a chama.
 
 Esses valores são usados pela função para executar suas tarefas. Por exemplo, se você tem uma função que
-
 soma dois números, os argumentos seriam esses dois números.
 
 Aqui está um exemplo:
