@@ -17,7 +17,7 @@ Whitbread.
 ## Hierarquia dos Elementos no Revit
 
 No Revit, os elementos são organizados em uma hierarquia, como em uma biblioteca, 
-onde nós temos sessões, prateleiras, livros e páginas.
+onde temos sessões, prateleiras, livros e páginas.
 
 No Revit temos a seguinte hierarquia:
 
@@ -41,7 +41,7 @@ Exemplo: _Walls_, _Floors_, _Ceilings_, _Doors_, _Windows_, _Furniture_, _Lighti
 Isso tem o propósito de manter a informação organizada e padronizada. Lembra como funcionam os _Layers_ do AutoCAD, na prática 
 do dia-a-dia? 🤯
 
-> Porém, é possível criar subcategorias, que são chamadas de _Subcategories_.
+> É possível criar subcategorias, que são chamadas de _Subcategories_.
 > 
 {style="note"}
 
@@ -50,7 +50,7 @@ do dia-a-dia? 🤯
 A família é um conjunto de elementos (_Types_) que compartilham características comuns. 
 
 Na [imagem acima](#revit-elements-hierarchy-image), temos a família _Rectangular Column_ que possui 
-os _Types_ **_450 x 600 mm_** e **_600 x 700 mm_**,
+os _Types_ _**450 x 600 mm**_ e _**600 x 700 mm**_,
 
 ### Type
 
