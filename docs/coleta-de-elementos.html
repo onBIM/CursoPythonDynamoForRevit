@@ -1,0 +1,97 @@
+<!DOCTYPE html SYSTEM "about:legacy-compat">
+<html lang="en-US" data-preset="contrast" data-primary-color="#307FFF"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><meta charset="UTF-8"><meta name="robots" content="noindex"><meta name="built-on" content="2024-11-27T12:24:10.7153921"><title>Coleta de Elementos | Conteúdo do Curso Python para Dynamo do Revit</title><script type="application/json" id="virtual-toc-data">[{"id":"o-que-o-filteredelementcollector","level":0,"title":"O que é o FilteredElementCollector","anchor":"#o-que-o-filteredelementcollector"},{"id":"como-usar-o-filteredelementcollector","level":0,"title":"Como usar o FilteredElementCollector","anchor":"#como-usar-o-filteredelementcollector"}]</script><script type="application/json" id="topic-shortcuts"></script><link href="https://resources.jetbrains.com/writerside/apidoc/6.10.0-b518/app.css" rel="stylesheet"><meta name="msapplication-TileColor" content="#000000"><link rel="apple-touch-icon" sizes="180x180" href="https://jetbrains.com/apple-touch-icon.png"><link rel="icon" type="image/png" sizes="32x32" href="https://jetbrains.com/favicon-32x32.png"><link rel="icon" type="image/png" sizes="16x16" href="https://jetbrains.com/favicon-16x16.png"><meta name="msapplication-TileImage" content="https://resources.jetbrains.com/storage/ui/favicons/mstile-144x144.png"><meta name="msapplication-square70x70logo" content="https://resources.jetbrains.com/storage/ui/favicons/mstile-70x70.png"><meta name="msapplication-square150x150logo" content="https://resources.jetbrains.com/storage/ui/favicons/mstile-150x150.png"><meta name="msapplication-wide310x150logo" content="https://resources.jetbrains.com/storage/ui/favicons/mstile-310x150.png"><meta name="msapplication-square310x310logo" content="https://resources.jetbrains.com/storage/ui/favicons/mstile-310x310.png"><meta name="image" content=""><!-- Open Graph --><meta property="og:title" content="Coleta de Elementos | Conteúdo do Curso Python para Dynamo do Revit"><meta property="og:description" content=""><meta property="og:image" content=""><meta property="og:site_name" content="Conteúdo do Curso Python para Dynamo do Revit Help"><meta property="og:type" content="website"><meta property="og:locale" content="en_US"><meta property="og:url" content="writerside-documentation/coleta-de-elementos.html"><!-- End Open Graph --><!-- Twitter Card --><meta name="twitter:card" content="summary_large_image"><meta name="twitter:site" content=""><meta name="twitter:title" content="Coleta de Elementos | Conteúdo do Curso Python para Dynamo do Revit"><meta name="twitter:description" content=""><meta name="twitter:creator" content=""><meta name="twitter:image:src" content=""><!-- End Twitter Card --><!-- Schema.org WebPage --><script type="application/ld+json">{
+    "@context": "http://schema.org",
+    "@type": "WebPage",
+    "@id": "writerside-documentation/coleta-de-elementos.html#webpage",
+    "url": "writerside-documentation/coleta-de-elementos.html",
+    "name": "Coleta de Elementos | Conteúdo do Curso Python para Dynamo do Revit",
+    "description": "",
+    "image": "",
+    "inLanguage":"en-US"
+}</script><!-- End Schema.org --><!-- Schema.org WebSite --><script type="application/ld+json">{
+    "@type": "WebSite",
+    "@id": "writerside-documentation/#website",
+    "url": "writerside-documentation/",
+    "name": "Conteúdo do Curso Python para Dynamo do Revit Help"
+}</script><!-- End Schema.org --></head><body data-id="Coleta-de-Elementos" data-main-title="Coleta de Elementos" data-article-props="{&quot;seeAlsoStyle&quot;:&quot;links&quot;}" data-template="article" data-breadcrumbs="Aula-006.md|Aula 006"><div class="wrapper"><main class="panel _main"><header class="panel__header"><div class="container"><h3>Conteúdo do Curso Python para Dynamo do Revit  Help</h3><div class="panel-trigger"></div></div></header><section class="panel__content"><div class="container"><article class="article" data-shortcut-switcher="inactive"><h1 data-toc="Coleta-de-Elementos" id="Coleta-de-Elementos.md">Coleta de Elementos</h1><p id="-b58dxd_3">Sabemos que na biblioteca padr&atilde;o do Dynamo existem alguns nodes que nos ajudam a coletar elementos do Revit. Por&eacute;m, muitas vezes esses nodes n&atilde;o s&atilde;o suficientes para o que precisamos.</p><p id="-b58dxd_4">J&aacute; que dispomos do Python, que por sua vez nos d&aacute; acesso direto a API do Revit, o mais recomendado &eacute; que usemos o Python para coletar elementos.</p><p id="-b58dxd_5">A ferramenta que usaremos para isso &eacute; o <code class="code" id="-b58dxd_8">FilteredElementCollector</code>.</p><section class="chapter"><h2 id="o-que-o-filteredelementcollector" data-toc="o-que-o-filteredelementcollector">O que &eacute; o FilteredElementCollector</h2><p id="-b58dxd_9">Segundo a documenta&ccedil;&atilde;o da API do Revit,</p><aside class="prompt" data-type="note" data-title="" id="-b58dxd_10"><p id="-b58dxd_14">O <a href="https://www.revitapidocs.com/2024/263cf06b-98be-6f91-c4da-fb47d01688f3.htm" id="-b58dxd_15" data-external="true" rel="noopener noreferrer"><code class="code" id="-b58dxd_17">FilteredElementCollector</code></a> &eacute; uma classe usada para procurar, filtrar e <a href="https://bit.ly/3OdTK6f" id="-b58dxd_16" data-external="true" rel="noopener noreferrer">iterar</a> sobre um conjunto de elementos do Revit.</p></aside><figure id="-b58dxd_11"><img alt="filtered-element-collector-class.png" src="images/filtered-element-collector-class.png" title="filtered-element-collector-class.png" width="1222" height="539"></figure><p id="-b58dxd_12">Ela &eacute; a melhor maneira de coletar elementos do Revit, pois &eacute; a mais eficiente e a que consome menos recursos do computador.</p><p id="-b58dxd_13">Os pr&oacute;prios nodes do Dynamo que coletam elementos usam o <code class="code" id="-b58dxd_18">FilteredElementCollector</code> por baixo dos panos.</p></section><section class="chapter"><h2 id="como-usar-o-filteredelementcollector" data-toc="como-usar-o-filteredelementcollector">Como usar o FilteredElementCollector</h2><section class="procedure-steps"><h3 id="using-filtered-element-collector" data-toc="using-filtered-element-collector">Usando o FilteredElementCollector</h3><ol class="list _decimal"><li class="list__item" id="-b58dxd_22"><p id="-b58dxd_25">A primeira coisa que precisamos fazer &eacute; configurar o nosso node Python Script para usar o IronPython como engine.</p><p id="-b58dxd_26">Na nossa <b id="-b58dxd_27">Aula 001</b>, mostramos como fazer isso no t&oacute;pico <a href="cpython-x-ironpython.html" id="-b58dxd_28" data-tooltip="O CPython é a implementação padrão da linguagem Python, enquanto o IronPython é uma implementação alternativa desenvolvida para rodar na plataforma .NET.">CPython x IronPython</a>.</p></li><li class="list__item" id="-b58dxd_23"><p id="-b58dxd_29">Agora &eacute; preciso importar todas as refer&ecirc;ncias da API do Revit para podermos us&aacute;-las no nosso c&oacute;digo.</p><p id="-b58dxd_30">Veja o t&oacute;pico <a href="template-python-onbim.html" id="-b58dxd_33" data-tooltip="O template Python onBIM é um arquivo Python que contém um conjunto de imports e unções, comumente utilizadas em scripts para programar para a API do Revit.">Template Python onBIM</a> para ver como fazer isso.</p><aside class="prompt" data-type="note" data-title="" id="-b58dxd_31"><p>Lembre-se tamb&eacute;m de importar as refer&ecirc;ncias de <b id="-b58dxd_34">Linq</b> e <b id="-b58dxd_35">System List</b>.</p></aside><p id="-b58dxd_32">Apesar de n&atilde;o utilizarmos elas incialmente, vai ser muito comum precisar depois. Ent&atilde;o aproveita e j&aacute; vai se acostumando a fazer isso.</p></li><li class="list__item" id="-b58dxd_24"><p id="-b58dxd_36">Agora precisamos criar uma inst&acirc;ncia da classe <code class="code" id="-b58dxd_41">FilteredElementCollector</code></p><p id="-b58dxd_37">Para isso, usamos o seguinte c&oacute;digo:</p><div class="code-block" data-lang="python">
+            collector = FilteredElementCollector(doc)
+        </div><p id="-b58dxd_39">Usando nosso template, como recomendado, ao final seu c&oacute;digo deve ter algo parecido com isso:</p><div class="code-collapse" data-lang="python" data-is-expanded="false" data-synopsis="Código básico para usar API do Revit" data-disable-link-processing="true"># by onBIM Technology
+# www.onbim.net
+# file name: ./${DIR_PATH}/${FILE_NAME}
+
+# REFERENCES AND IMPORTS
+# BEGIN&gt;&gt;&gt;&gt;&gt;
+
+import clr
+import System
+
+# &lt;&lt;&lt; Python Modules &gt;&gt;&gt;
+# BEGIN
+
+# Import traceback module from Iron Python
+import traceback
+
+# END
+
+# Import System Libraries
+clr.AddReference(&quot;System.Core&quot;)
+from System.Collections.Generic import List as SystemList
+
+# Import Linq
+clr.ImportExtensions(System.Linq)
+
+# Import Dynamo Library Nodes - Revit
+clr.AddReference(&quot;RevitNodes&quot;)
+import Revit as RevitNodes
+
+# Import ToDSType(bool) extension method
+clr.ImportExtensions(RevitNodes.Elements)
+clr.ImportExtensions(RevitNodes.GeometryConversion)
+
+# Import DocumentManager and TransactionManager
+clr.AddReference(&quot;RevitServices&quot;)
+import RevitServices
+from RevitServices.Persistence import DocumentManager
+from RevitServices.Transactions import TransactionManager
+
+# Import Revit API
+clr.AddReference(&quot;RevitAPI&quot;)
+import Autodesk
+from Autodesk.Revit.DB import *
+# REFERENCES AND IMPORTS
+# END&lt;&lt;&lt;&lt;&lt;
+
+# INPUTS AND VARIABLES DECLARATIONS
+# BEGIN&gt;&gt;&gt;&gt;&gt;
+
+doc = DocumentManager.Instance.CurrentDBDocument
+
+inputFromDynamo = IN[0]
+
+result = []
+
+# INPUTS AND VARIABLES DECLARATIONS
+# END&lt;&lt;&lt;&lt;&lt;
+
+# MAIN CODE
+# BEGIN&gt;&gt;&gt;&gt;&gt;
+
+try:
+    errorReport = None
+    
+    collector = FilteredElementCollector(doc)
+    
+except Exception as e:
+    # if error occurs anywhere in the process catch it
+    errorReport = traceback.format_exc()
+
+# Assign your output to the OUT variable
+if errorReport is None:
+    OUT = result
+else:
+    OUT = errorReport
+# MAIN CODE
+# END&lt;&lt;&lt;&lt;&lt;
+
+
+</div></li></ol></section><p id="-b58dxd_20">A primeira coisa que precisamos fazer &eacute; configurar o nosso node Python Script para usar o IronPython como engine.</p><p id="-b58dxd_21">Na nossa <span class="control" id="-b58dxd_42">Aula 001</span>, mostramos como fazer isso no t&oacute;pico <a href="aula-001.html#cpython-vs-ironpython" id="-b58dxd_43" data-tooltip="Este capítulo compara as duas principais implementações de Python: CPython, a implementação padrão, e IronPython, uma implementação que integra com a plataforma .NET.">CPython x IronPython</a>.</p></section><div class="last-modified">Last modified: 27 November 2024</div><div data-feedback-placeholder="true"></div><div class="navigation-links _bottom"><a href="fluxo-geral-de-rotinas.html" class="navigation-links__prev">Fluxo geral de rotinas</a></div></article><div id="disqus_thread"></div></div></section></main></div><script src="https://resources.jetbrains.com/writerside/apidoc/6.10.0-b518/app.js"></script></body></html>
