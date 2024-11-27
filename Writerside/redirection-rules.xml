@@ -25,4 +25,8 @@
         </description>
         <accepts>Tipos-básicos-de-dados.html</accepts>
     </rule>
+    <rule id="664b8e61">
+        <description>Created after removal of "intro" from Conteúdo do Curso Python para Dynamo do Revit</description>
+        <accepts>Course-Intro.html</accepts>
+    </rule>
 </rules>

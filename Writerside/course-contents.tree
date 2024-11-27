@@ -4,9 +4,9 @@
 
 <instance-profile id="course-contents"
                  name="Conteúdo do Curso Python para Dynamo do Revit"
-                 start-page="Course-Intro.md">
+                 start-page="course-intro.md">
 
-    <toc-element topic="Course-Intro.md"/>
+    <toc-element topic="course-intro.md"/>
     <toc-element topic="Aula-001.md">
         <toc-element topic="Introdução-ao-Python.md"/>
         <toc-element topic="O-Node-Python-Script.md"/>
