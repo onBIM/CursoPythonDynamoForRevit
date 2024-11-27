@@ -1,12 +1,15 @@
 # Curso de Python para Dynamo do Revit
 
+![Python para Dynamo do Revit](python-dynamo-revit.png)
+
 ## Introdução
 Seja bem-vindo ao curso de **Python para Dynamo do Revit**. Este curso foi cuidadosamente estruturado para capacitar 
 profissionais no uso da linguagem de programação Python em conjunto com o Dynamo para Revit. 
 O objetivo é tornar a modelagem de informações de construção (BIM) ainda mais eficiente e automatizada, 
 por meio de scripts Python que potencializam suas capacidades no Revit.
-Ao longo deste curso, exploraremos os fundamentos do Python e aplicaremos esses conhecimentos na criação de scripts no Dynamo, 
-integrando diretamente com a API do Revit. A seguir, apresentamos uma visão geral do que será coberto.
+Ao longo deste curso, exploraremos os fundamentos do Python e aplicaremos esses conhecimentos na criação 
+de scripts no Dynamo, integrando diretamente com a API do Revit. A seguir, apresentamos 
+uma visão geral do que será coberto.
 
 ## Conteúdo Programático
 
@@ -37,6 +40,10 @@ Entenderemos a estrutura da API e exploraremos exemplos práticos de automação
 ### Aula 006: Programação para a API do Revit
 Finalizaremos aprendendo os princípios de programação para a API do Revit, 
 consolidando os conhecimentos adquiridos ao longo do curso e aplicando-os em projetos reais.
+
+### Baixo o conteúdo em PDF
+Para baixar o conteúdo das aulas em PDF, 
+[clique aqui](https://github.com/onBIM/CursoPythonDynamoForRevit/pdf/pdfSourceCOURSE-CONTENTS.pdf).
 
 ## Objetivo do Curso
 O objetivo principal deste curso é fornecer uma base sólida sobre a utilização do Python em conjunto com o Dynamo e o 
