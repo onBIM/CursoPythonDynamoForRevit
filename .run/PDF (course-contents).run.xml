@@ -1,0 +1,17 @@
+<component name="ProjectRunConfigurationManager">
+  <configuration default="false" name="PDF (course-contents)" type="StardustRunConfiguration" factoryName="build-pdf">
+    <option name="addCover" value="true" />
+    <option name="copyright" value="onBIM Technology" />
+    <option name="description" value="Conteúdo do Curso Python para Dynamo do Revit promovido pela onBIM Technology&#10;https://www.onbim.net/" />
+    <option name="folderPath" value="$PROJECT_DIR$/pdf" />
+    <option name="footer" />
+    <option name="header" />
+    <option name="instanceId" value="course-contents" />
+    <option name="instanceName" value="Conteúdo do Curso Python para Dynamo do Revit" />
+    <option name="layout" />
+    <option name="logoPath" value="$PROJECT_DIR$/../../../Institucional/LOGO/LOGO.png" />
+    <option name="title" value="Curso Python para Dynamo do Revit" />
+    <option name="tocTitle" value="Índice" />
+    <method v="2" />
+  </configuration>
+</component>
