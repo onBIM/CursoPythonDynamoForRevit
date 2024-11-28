@@ -33,4 +33,8 @@
         <description>Created after removal of "Curso de Python para Dynamo do Revit" from Conteúdo do Curso Python para Dynamo do Revit</description>
         <accepts>course-intro.html</accepts>
     </rule>
+    <rule id="2e02cece">
+        <description>Created after removal of "Where" from Conteúdo do Curso Python para Dynamo do Revit</description>
+        <accepts>Where.html</accepts>
+    </rule>
 </rules>

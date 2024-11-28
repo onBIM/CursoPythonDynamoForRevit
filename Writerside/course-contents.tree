@@ -9,6 +9,7 @@
     <toc-element topic="Home.topic"/>
     <toc-element topic="Objetivos.md"/>
     <toc-element topic="Requisitos.md"/>
+    <toc-element topic="annotations.md"/>
     <toc-element topic="Aula-001.md">
         <toc-element topic="Introdução-ao-Python.md"/>
         <toc-element topic="O-Node-Python-Script.md"/>
@@ -60,7 +61,15 @@
         <toc-element topic="Fluxo-geral-de-rotinas.md"/>
         <toc-element topic="Coleta-de-Elementos.md"/>
     </toc-element>
-    <toc-element topic="Aula-007.md"/>
+    <toc-element topic="Aula-007.md">
+        <toc-element topic="Linq.md">
+            <toc-element topic="Where.md"/>
+            <toc-element topic="Select.md"/>
+            <toc-element topic="OrderBy.md"/>
+            <toc-element topic="FirstOrDefault.md"/>
+            <toc-element topic="ToDictionary.md"/>
+        </toc-element>
+    </toc-element>
     <toc-element topic="Aula-008.md"/>
     <toc-element topic="Aula-009.md"/>
 </instance-profile>
