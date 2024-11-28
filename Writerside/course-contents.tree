@@ -25,9 +25,25 @@
                 <toc-element topic="collections-python-set.md"/>
                 <toc-element topic="collections-python-dictionary.md"/>
             </toc-element>
+            <toc-element topic="collections-system.md">
+                <toc-element topic="collections-system-list.md"/>
+                <toc-element topic="collections-system-hashset.md"/>
+                <toc-element topic="collections-system-dictionary.md"/>
+            </toc-element>
         </toc-element>
     </toc-element>
     <toc-element topic="Aula-003.md">
+        <toc-element topic="Loops.md">
+            <toc-element topic="loops-while.md"/>
+            <toc-element topic="loops-for.md"/>
+            <toc-element topic="loops-list-comprehension.md"/>
+            <toc-element topic="loops-zip.md"/>
+        </toc-element>
+        <toc-element topic="exceptions.md">
+            <toc-element topic="try-except.md"/>
+            <toc-element topic="raise-an-exception.md"/>
+            <toc-element topic="catching-revit-exceptions.md"/>
+        </toc-element>
         <toc-element topic="functions-in-python.md"/>
         <toc-element topic="oop-in-python.md"/>
     </toc-element>

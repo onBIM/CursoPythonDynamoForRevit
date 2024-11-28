@@ -184,35 +184,46 @@ A seguir, mostramos alguns exemplos de uso do método `WherePasses()`.
 Vamos o usar o [`ElementMulticategoryFilter`](https://www.revitapidocs.com/2024/34f8d848-4440-e880-3277-4f90e5cf3072.htm)
 para filtrar elementos de várias categorias.
 
-Esse filtro possui várias formas de instanciá-lo, mas a mais comum é passando uma lista de `BuiltInCategory` como argumento.
+Esse filtro possui várias formas de instanciá-lo, porém a mais comum é passando uma lista de `BuiltInCategory` como 
+argumento.
 
 ![mult-cat-filter-constructors.png](mult-cat-filter-constructors.png)
 
-<code-block collapsed-title="Usando ElementMulticategoryFilter" lang="Python" collapsible="true" default-state="collapsed">
-    # Criando uma System List de BuiltInCategory, pois o construtor do 
-    # ElementMulticategoryFilter não aceita uma lista Python    
+```python
+    # Criando uma System List de BuiltInCategory, 
+    # pois o construtor do ElementMulticategoryFilter 
+    # não aceita uma lista Python    
     cats = SystemList[BuiltInCategory]([
-        BuiltInCategory.OST_Walls, 
+        BuiltInCategory.OST_Walls,
         BuiltInCategory.OST_Floors
     ])
-
-    multCatFilter = ElementMulticategoryFilter(cats)   
-
+    
+    multCatFilter = ElementMulticategoryFilter(cats)
+    
     walls_and_floors = \
         FilteredElementCollector(doc) \
         .WherePasses(multCatFilter) \
         .ToElements()
-</code-block>
+    
+    result = walls_and_floors
+```
 
 <note>
-    <p>Veja como foi necessário criar uma List do Sistema para poder utilizar o construtor do filtro.</p>
-    <p>Falamos disso no tópíco <a href="collections.md"/></p>
+    <p>Veja como foi necessário criar uma <code>List</code> do <code>System</code> para poder utilizar o construtor do filtro.</p>
+    <p>Falamos disso no tópíco <a href="collections-system.md">Coleções | System</a></p>
 </note>
 
-<note>
+<tip>
     <p>Perceba que para evitarmos linhas de código muito longas, que podem ser difíceis de ler, utilizamos a barra invertida `\`
     para quebrar a linha.</p>
     <p>Essa é forma que o Python permite quebrar uma linha de código em várias linhas, sem causar erros de sintaxe.</p>
+</tip>
+
+![collecting-walls-and-floors.png](collecting-walls-and-floors.png)
+
+<note>
+    <p>Note que foi necessário mudarmos a engine Python para <code>IronPython</code> para que o código acima funcionasse.</p>
+    <p>Falamos sobre isso no tópico <a href="CPython-x-IronPython.md"></a></p>
 </note>
 
 
