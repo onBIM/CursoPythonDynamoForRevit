@@ -24,7 +24,11 @@ Os próprios nodes do Dynamo que coletam elementos usam o `FilteredElementCollec
 
 ## Como usar o FilteredElementCollector
 
-<procedure title="Usando o FilteredElementCollector" id="using-filtered-element-collector">
+O procedimento abaixo mostra como usar o `FilteredElementCollector` para coletar elementos do Revit.
+
+Clique no ícone ➕ para expandir o procedimento.
+
+<procedure title="Usando o FilteredElementCollector" id="using-filtered-element-collector" collapsible="true" default-state="collapsed">
     <step>
         <p>Configurar o nosso node Python Script para usar o IronPython como engine.</p>
         <p>Na nossa <b>Aula 001</b>, mostramos como fazer isso no tópico <a href="CPython-x-IronPython.md"/>.</p>
@@ -120,10 +124,95 @@ Os próprios nodes do Dynamo que coletam elementos usam o `FilteredElementCollec
         <code-block lang="Python">
             walls = collector.OfCategory(BuiltInCategory.OST_Walls).ToElements()
         </code-block>
+        <img src="collect-walls.png" alt="Coletando paredes por categoria" style="block"/>
         <p>Por outro lado, se quisermos uma lista de <code>ElementId</code>, utilizamos o método <code>ToElementIds()</code>:</p>
         <code-block lang="Python">
             walls_ids = collector.OfCategory(BuiltInCategory.OST_Walls).ToElementIds()
         </code-block>
+        <img src="collect-walls-ids.png" alt="Coletando ids por categoria" style="block"/>
     </step>
 </procedure>
+
+## Mais opções de filtragem com o FilteredElementCollector
+
+Antes de coverter o `FilteredElementCollector` para lista podemos fazer muitas outras filtragens. 
+
+Para isso utilizamos o método [`WherePasses()`](https://www.revitapidocs.com/2024/42d4eef3-55a1-2739-0ef8-6bc1d9fc2755.htm) 
+do `FilteredElementCollector`.
+
+Note que este método recebe um objeto do tipo [`ElementFilter`](https://www.revitapidocs.com/2024/b8b46cbf-9ecc-0745-ec53-c3c3b6510113.htm) como argumento.
+
+![wherepasses-method.png](wherepasses-method.png)
+
+O `ElementFilter` é uma classe base que possui três classes principais derivadas que caracterizam o "tipo" de filtro: 
+
+Cada uma dessas classes por sua vez possui várias classes derivadas que representam os filtros específicos.
+No nosso código utilizamos essas classes filhas para criar os filtros.
+
+Veja a lista abaixo:
+
+<procedure title="Tipos de filtro" collapsible="true" default-state="collapsed">
+    <step>
+        <p><a href="https://www.revitapidocs.com/2024/3b8d6b55-0cab-1810-1188-840800e5eaa2.htm"><code>ElementLogicalFilter</code></a></p>
+        <p>Essa classe é utilizada para combinar vários filtros</p>
+        <p>Classes derivadas:</p>
+        <img src="element-logical-filter.png" alt="ElementLogicalFilter"/>
+    </step>
+    <step>
+        <p><a href="https://www.revitapidocs.com/2024/ebc95d82-11fc-69f6-2df1-52331dd36443.htm"><code>ElementQuickFilter</code></a></p>
+        <p>Essa classe é utilizada para filtrar elementos de forma rápida</p>
+        <p>Classes derivadas:</p>
+        <img src="element-quick-filter.png" alt="ElementQuickFilter"/>
+        <p>As mais usadas são: <code>BoundingBoxIntersectsFilter</code> e <code>ElementMulticategoryFilter</code></p>
+    </step>
+    <step>
+        <p><a href="https://www.revitapidocs.com/2024/e06b1e14-dd8d-8137-74ac-8ac4929eee85.htm"><code>ElementSlowFilter</code></a></p>
+        <p>Essa classe é utilizada para filtrar elementos de forma mais lenta.</p>
+        <warning>Cuidado. Esse filtro é bastante lento e consome bem mais memória, como pode ser visto na sessão <i>Remarks</i></warning>
+        <p>Classes derivadas:</p>
+        <img src="element-slow-filter.png" alt="ElementSlowFilter"/>
+        <p>A mais usada é: <code>ElementIntersectsFilter</code></p>
+    </step>
+</procedure>
+
+### Exemplos de uso do `WherePasses()`
+
+A seguir, mostramos alguns exemplos de uso do método `WherePasses()`.
+
+#### Usando um `ElementQuickFilter`
+
+Vamos o usar o [`ElementMulticategoryFilter`](https://www.revitapidocs.com/2024/34f8d848-4440-e880-3277-4f90e5cf3072.htm)
+para filtrar elementos de várias categorias.
+
+Esse filtro possui várias formas de instanciá-lo, mas a mais comum é passando uma lista de `BuiltInCategory` como argumento.
+
+![mult-cat-filter-constructors.png](mult-cat-filter-constructors.png)
+
+<code-block collapsed-title="Usando ElementMulticategoryFilter" lang="Python" collapsible="true" default-state="collapsed">
+    # Criando uma System List de BuiltInCategory, pois o construtor do 
+    # ElementMulticategoryFilter não aceita uma lista Python    
+    cats = SystemList[BuiltInCategory]([
+        BuiltInCategory.OST_Walls, 
+        BuiltInCategory.OST_Floors
+    ])
+
+    multCatFilter = ElementMulticategoryFilter(cats)   
+
+    walls_and_floors = \
+        FilteredElementCollector(doc) \
+        .WherePasses(multCatFilter) \
+        .ToElements()
+</code-block>
+
+<note>
+    <p>Veja como foi necessário criar uma List do Sistema para poder utilizar o construtor do filtro.</p>
+    <p>Falamos disso no tópíco <a href="collections.md"/></p>
+</note>
+
+<note>
+    <p>Perceba que para evitarmos linhas de código muito longas, que podem ser difíceis de ler, utilizamos a barra invertida `\`
+    para quebrar a linha.</p>
+    <p>Essa é forma que o Python permite quebrar uma linha de código em várias linhas, sem causar erros de sintaxe.</p>
+</note>
+
 
