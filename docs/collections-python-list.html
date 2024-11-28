@@ -1,0 +1,52 @@
+<!DOCTYPE html SYSTEM "about:legacy-compat">
+<html lang="en-US" data-preset="contrast" data-primary-color="#307FFF"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><meta charset="UTF-8"><meta name="robots" content="noindex"><meta name="built-on" content="2024-11-28T18:28:51.3647269"><title>list | Conteúdo do Curso Python para Dynamo do Revit</title><script type="application/json" id="virtual-toc-data">[{"id":"defini-o","level":0,"title":"Definição","anchor":"#defini-o"},{"id":"exemplos-de-cria-o-de-lista","level":0,"title":"Exemplos de criação de lista","anchor":"#exemplos-de-cria-o-de-lista"},{"id":"principais-m-todos-e-propriedades","level":0,"title":"Principais métodos e propriedades","anchor":"#principais-m-todos-e-propriedades"}]</script><script type="application/json" id="topic-shortcuts"></script><link href="https://resources.jetbrains.com/writerside/apidoc/6.10.0-b518/app.css" rel="stylesheet"><meta name="msapplication-TileColor" content="#000000"><link rel="apple-touch-icon" sizes="180x180" href="https://jetbrains.com/apple-touch-icon.png"><link rel="icon" type="image/png" sizes="32x32" href="https://jetbrains.com/favicon-32x32.png"><link rel="icon" type="image/png" sizes="16x16" href="https://jetbrains.com/favicon-16x16.png"><meta name="msapplication-TileImage" content="https://resources.jetbrains.com/storage/ui/favicons/mstile-144x144.png"><meta name="msapplication-square70x70logo" content="https://resources.jetbrains.com/storage/ui/favicons/mstile-70x70.png"><meta name="msapplication-square150x150logo" content="https://resources.jetbrains.com/storage/ui/favicons/mstile-150x150.png"><meta name="msapplication-wide310x150logo" content="https://resources.jetbrains.com/storage/ui/favicons/mstile-310x150.png"><meta name="msapplication-square310x310logo" content="https://resources.jetbrains.com/storage/ui/favicons/mstile-310x310.png"><meta name="image" content=""><!-- Open Graph --><meta property="og:title" content="list | Conteúdo do Curso Python para Dynamo do Revit"><meta property="og:description" content=""><meta property="og:image" content=""><meta property="og:site_name" content="Conteúdo do Curso Python para Dynamo do Revit Help"><meta property="og:type" content="website"><meta property="og:locale" content="en_US"><meta property="og:url" content="writerside-documentation/collections-python-list.html"><!-- End Open Graph --><!-- Twitter Card --><meta name="twitter:card" content="summary_large_image"><meta name="twitter:site" content=""><meta name="twitter:title" content="list | Conteúdo do Curso Python para Dynamo do Revit"><meta name="twitter:description" content=""><meta name="twitter:creator" content=""><meta name="twitter:image:src" content=""><!-- End Twitter Card --><!-- Schema.org WebPage --><script type="application/ld+json">{
+    "@context": "http://schema.org",
+    "@type": "WebPage",
+    "@id": "writerside-documentation/collections-python-list.html#webpage",
+    "url": "writerside-documentation/collections-python-list.html",
+    "name": "list | Conteúdo do Curso Python para Dynamo do Revit",
+    "description": "",
+    "image": "",
+    "inLanguage":"en-US"
+}</script><!-- End Schema.org --><!-- Schema.org WebSite --><script type="application/ld+json">{
+    "@type": "WebSite",
+    "@id": "writerside-documentation/#website",
+    "url": "writerside-documentation/",
+    "name": "Conteúdo do Curso Python para Dynamo do Revit Help"
+}</script><!-- End Schema.org --></head><body data-id="collections-python-list" data-main-title="list" data-article-props="{&quot;seeAlsoStyle&quot;:&quot;links&quot;}" data-template="article" data-breadcrumbs="Aula-002.md|Aula 002///collections.md|Coleções///collections-python.md|Python"><div class="wrapper"><main class="panel _main"><header class="panel__header"><div class="container"><h3>Conteúdo do Curso Python para Dynamo do Revit  Help</h3><div class="panel-trigger"></div></div></header><section class="panel__content"><div class="container"><article class="article" data-shortcut-switcher="inactive"><h1 data-toc="collections-python-list" id="collections-python-list.md">list</h1><figure id="-1ibfb_3"><img alt="python-list.png" src="images/python-list.png" title="python-list.png" width="1151" height="627"></figure><section class="chapter"><h2 id="defini-o" data-toc="defini-o">Defini&ccedil;&atilde;o</h2><p id="-1ibfb_7">Uma lista em Python &eacute; uma cole&ccedil;&atilde;o ordenada de elementos que pode conter itens de tipos diferentes, como n&uacute;meros, strings ou at&eacute; outras listas.</p><p id="-1ibfb_8">Os items da lista s&atilde;o numerados come&ccedil;ando do '0' (zero)</p><p id="-1ibfb_9">As listas s&atilde;o mut&aacute;veis, o que significa que voc&ecirc; pode alterar seus elementos ap&oacute;s a cria&ccedil;&atilde;o.</p><p id="-1ibfb_10">Elas s&atilde;o definidas usando colchetes <code class="code" id="-1ibfb_11">[]</code>.</p></section><section class="chapter"><h2 id="exemplos-de-cria-o-de-lista" data-toc="exemplos-de-cria-o-de-lista">Exemplos de cria&ccedil;&atilde;o de lista</h2><div class="code-block" data-lang="python">
+# Criando uma lista de números
+numeros = [1, 2, 3, 4, 5]
+
+# Criando uma lista de strings
+frutas = [&quot;maçã&quot;, &quot;banana&quot;, &quot;cereja&quot;]
+
+# Lista mista
+mista = [1, &quot;dois&quot;, 3.0, [4, 5]]
+
+# Criando uma lista vazia
+lista_vazia1 = []
+lista_vazia2 = list()
+</div></section><section class="chapter"><h2 id="principais-m-todos-e-propriedades" data-toc="principais-m-todos-e-propriedades">Principais m&eacute;todos e propriedades</h2><ul class="list _bullet" id="-1ibfb_13"><li class="list__item" id="-1ibfb_29"><p><span class="control" id="-1ibfb_30">Acessar elementos</span>: Voc&ecirc; pode acessar elementos individuais usando &iacute;ndices, come&ccedil;ando do zero.</p></li></ul><div class="code-block" data-lang="python">
+primeiro_numero = numeros[0]  # 1
+primeira_fruta = frutas[0]    # &quot;maçã&quot;
+</div><ul class="list _bullet" id="-1ibfb_15"><li class="list__item" id="-1ibfb_31"><p><span class="control" id="-1ibfb_32">Adicionar elementos</span>: Use <code class="code" id="-1ibfb_33">append()</code> para adicionar um elemento ao final da lista.</p></li></ul><div class="code-block" data-lang="python">
+frutas.append(&quot;laranja&quot;)
+# frutas agora é [&quot;maçã&quot;, &quot;banana&quot;, &quot;cereja&quot;, &quot;laranja&quot;]
+</div><ul class="list _bullet" id="-1ibfb_17"><li class="list__item" id="-1ibfb_34"><p><span class="control" id="-1ibfb_35">Inserir elementos</span>: Use <code class="code" id="-1ibfb_36">insert()</code> para adicionar um elemento em uma posi&ccedil;&atilde;o espec&iacute;fica.</p></li></ul><div class="code-block" data-lang="python">
+numeros.insert(2, 10)
+# numeros agora é [1, 2, 10, 3, 4, 5]
+</div><ul class="list _bullet" id="-1ibfb_19"><li class="list__item" id="-1ibfb_37"><p><span class="control" id="-1ibfb_38">Remover elementos</span>: Use <code class="code" id="-1ibfb_39">remove()</code> para remover a primeira ocorr&ecirc;ncia de um valor.</p></li></ul><div class="code-block" data-lang="python">
+frutas.remove(&quot;banana&quot;)
+# frutas agora é [&quot;maçã&quot;, &quot;cereja&quot;, &quot;laranja&quot;]
+</div><ul class="list _bullet" id="-1ibfb_21"><li class="list__item" id="-1ibfb_40"><p><span class="control" id="-1ibfb_41">Remover por &iacute;ndice</span>: Use <code class="code" id="-1ibfb_42">pop()</code> para remover um elemento pelo &iacute;ndice e retornar o elemento removido.</p></li></ul><div class="code-block" data-lang="python">
+ultimo_numero = numeros.pop()
+# ultimo_numero é 5, numeros agora é [1, 2, 10, 3, 4]
+</div><ul class="list _bullet" id="-1ibfb_23"><li class="list__item" id="-1ibfb_43"><p><span class="control" id="-1ibfb_44">Tamanho da lista</span>: Use <code class="code" id="-1ibfb_45">len()</code> para obter o n&uacute;mero de elementos na lista.</p></li></ul><div class="code-block" data-lang="python">
+tamanho = len(frutas)  # 3
+</div><ul class="list _bullet" id="-1ibfb_25"><li class="list__item" id="-1ibfb_46"><p><span class="control" id="-1ibfb_47">Ordenar lista</span>: Use <code class="code" id="-1ibfb_48">sort()</code> para ordenar a lista em ordem crescente.</p></li></ul><div class="code-block" data-lang="python">
+numeros.sort()
+# numeros agora é [1, 2, 3, 4, 10]
+</div><ul class="list _bullet" id="-1ibfb_27"><li class="list__item" id="-1ibfb_49"><p><span class="control" id="-1ibfb_50">Reverter lista</span>: Use <code class="code" id="-1ibfb_51">reverse()</code> para inverter a ordem dos elementos.</p></li></ul><div class="code-block" data-lang="python">
+numeros.reverse()
+# numeros agora é [10, 4, 3, 2, 1]
+</div></section><div class="last-modified">Last modified: 28 November 2024</div><div data-feedback-placeholder="true"></div><div class="navigation-links _bottom"><a href="collections-python.html" class="navigation-links__prev">Python</a><a href="collections-python-tuple.html" class="navigation-links__next">tuple</a></div></article><div id="disqus_thread"></div></div></section></main></div><script src="https://resources.jetbrains.com/writerside/apidoc/6.10.0-b518/app.js"></script></body></html>

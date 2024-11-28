@@ -24,8 +24,7 @@ usar somente as funções nativas do Python.
 
 ## Principais Métodos
 
-`Linq` possui muitos métodos, mas no nosso dia-a-dia de programação para a API do Revit, 
-esses são os que mais utilizaremos:
+`Linq` possui muitos métodos, mas no nosso dia-a-dia de programação para a API do Revit esses são os que mais utilizaremos:
 
 **[](Where.md)** 
 : Filtra uma sequência de valores com base em um predicado.

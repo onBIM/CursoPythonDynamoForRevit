@@ -1,0 +1,58 @@
+<!DOCTYPE html SYSTEM "about:legacy-compat">
+<html lang="en-US" data-preset="contrast" data-primary-color="#307FFF"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><meta charset="UTF-8"><meta name="robots" content="noindex"><meta name="built-on" content="2024-11-28T18:28:51.361723"><title>List | Conteúdo do Curso Python para Dynamo do Revit</title><script type="application/json" id="virtual-toc-data">[{"id":"defini-o","level":0,"title":"Definição","anchor":"#defini-o"},{"id":"principais-propriedades","level":0,"title":"Principais Propriedades","anchor":"#principais-propriedades"},{"id":"principais-m-todos","level":0,"title":"Principais Métodos","anchor":"#principais-m-todos"}]</script><script type="application/json" id="topic-shortcuts"></script><link href="https://resources.jetbrains.com/writerside/apidoc/6.10.0-b518/app.css" rel="stylesheet"><meta name="msapplication-TileColor" content="#000000"><link rel="apple-touch-icon" sizes="180x180" href="https://jetbrains.com/apple-touch-icon.png"><link rel="icon" type="image/png" sizes="32x32" href="https://jetbrains.com/favicon-32x32.png"><link rel="icon" type="image/png" sizes="16x16" href="https://jetbrains.com/favicon-16x16.png"><meta name="msapplication-TileImage" content="https://resources.jetbrains.com/storage/ui/favicons/mstile-144x144.png"><meta name="msapplication-square70x70logo" content="https://resources.jetbrains.com/storage/ui/favicons/mstile-70x70.png"><meta name="msapplication-square150x150logo" content="https://resources.jetbrains.com/storage/ui/favicons/mstile-150x150.png"><meta name="msapplication-wide310x150logo" content="https://resources.jetbrains.com/storage/ui/favicons/mstile-310x150.png"><meta name="msapplication-square310x310logo" content="https://resources.jetbrains.com/storage/ui/favicons/mstile-310x310.png"><meta name="image" content=""><!-- Open Graph --><meta property="og:title" content="List | Conteúdo do Curso Python para Dynamo do Revit"><meta property="og:description" content=""><meta property="og:image" content=""><meta property="og:site_name" content="Conteúdo do Curso Python para Dynamo do Revit Help"><meta property="og:type" content="website"><meta property="og:locale" content="en_US"><meta property="og:url" content="writerside-documentation/collections-system-list.html"><!-- End Open Graph --><!-- Twitter Card --><meta name="twitter:card" content="summary_large_image"><meta name="twitter:site" content=""><meta name="twitter:title" content="List | Conteúdo do Curso Python para Dynamo do Revit"><meta name="twitter:description" content=""><meta name="twitter:creator" content=""><meta name="twitter:image:src" content=""><!-- End Twitter Card --><!-- Schema.org WebPage --><script type="application/ld+json">{
+    "@context": "http://schema.org",
+    "@type": "WebPage",
+    "@id": "writerside-documentation/collections-system-list.html#webpage",
+    "url": "writerside-documentation/collections-system-list.html",
+    "name": "List | Conteúdo do Curso Python para Dynamo do Revit",
+    "description": "",
+    "image": "",
+    "inLanguage":"en-US"
+}</script><!-- End Schema.org --><!-- Schema.org WebSite --><script type="application/ld+json">{
+    "@type": "WebSite",
+    "@id": "writerside-documentation/#website",
+    "url": "writerside-documentation/",
+    "name": "Conteúdo do Curso Python para Dynamo do Revit Help"
+}</script><!-- End Schema.org --></head><body data-id="collections-system-list" data-main-title="List" data-article-props="{&quot;seeAlsoStyle&quot;:&quot;links&quot;}" data-template="article" data-breadcrumbs="Aula-002.md|Aula 002///collections.md|Coleções///collections-system.md|System"><div class="wrapper"><main class="panel _main"><header class="panel__header"><div class="container"><h3>Conteúdo do Curso Python para Dynamo do Revit  Help</h3><div class="panel-trigger"></div></div></header><section class="panel__content"><div class="container"><article class="article" data-shortcut-switcher="inactive"><h1 data-toc="collections-system-list" id="collections-system-list.md">List</h1><section class="chapter"><h2 id="defini-o" data-toc="defini-o">Defini&ccedil;&atilde;o</h2><p id="xo0h6k_6">A cole&ccedil;&atilde;o <code class="code" id="xo0h6k_11">List&lt;T&gt;</code> do namespace <code class="code" id="xo0h6k_12">System.Collections.Generic</code> em C# &eacute; uma classe que <span class="control" id="xo0h6k_13">representa uma lista</span> <span class="control" id="xo0h6k_14">fortemente tipada</span> <span class="control" id="xo0h6k_15">de objetos acess&iacute;veis por &iacute;ndice</span>.</p><p id="xo0h6k_7">Ela &eacute; usada para armazenar e manipular uma cole&ccedil;&atilde;o de elementos de um tipo espec&iacute;fico, oferecendo flexibilidade e efici&ecirc;ncia.</p><p id="xo0h6k_8">A <code class="code" id="xo0h6k_16">List&lt;T&gt;</code> &eacute; &uacute;til quando voc&ecirc; precisa de uma cole&ccedil;&atilde;o que pode crescer e diminuir dinamicamente, ao contr&aacute;rio de arrays que t&ecirc;m tamanho fixo. Ela &eacute; amplamente utilizada devido &agrave; sua capacidade de adicionar, remover e acessar elementos de forma eficiente.</p><p id="xo0h6k_9">Para utilizarmos a <code class="code" id="xo0h6k_17">List&lt;T&gt;</code> no IronPython, precisamos importar a classe <code class="code" id="xo0h6k_18">List</code> do namespace <code class="code" id="xo0h6k_19">System.Collections.Generic</code>.</p><div class="code-block" data-lang="python">
+import clr
+clr.AddReference(&quot;System.Core&quot;)
+from System.Collections.Generic import List as SystemList
+</div></section><section class="chapter"><h2 id="principais-propriedades" data-toc="principais-propriedades">Principais Propriedades</h2><p id="xo0h6k_20"><span class="control" id="xo0h6k_22"><code class="code" id="xo0h6k_23">Count</code></span>: Retorna o n&uacute;mero de elementos atualmente na lista.</p><p id="xo0h6k_21"><span class="control" id="xo0h6k_24"><code class="code" id="xo0h6k_25">Capacity</code></span>: Indica o n&uacute;mero de elementos que a lista pode conter antes de precisar redimensionar internamente.</p></section><section class="chapter"><h2 id="principais-m-todos" data-toc="principais-m-todos">Principais M&eacute;todos</h2><section class="chapter"><h3 id="add-t-item" data-toc="add-t-item"><code class="code" id="xo0h6k_40">Add(T item)</code></h3><p id="xo0h6k_35">Adiciona um objeto ao final da lista</p><p id="xo0h6k_36">C#</p><div class="code-block" data-lang="csharp">
+List&lt;int&gt; numeros = new List&lt;int&gt;();
+numeros.Add(1);
+numeros.Add(2);
+</div><p id="xo0h6k_38">IronPython</p><div class="code-block" data-lang="python">
+ numeros = SystemList[int]()
+ numeros.Add(1)
+ numeros.Add(2)
+</div></section><section class="chapter"><h3 id="addrange-ienumerable-t-collection" data-toc="addrange-ienumerable-t-collection"><code class="code" id="xo0h6k_48">AddRange(IEnumerable&lt;T&gt; collection)</code></h3><p id="xo0h6k_42">Adiciona os elementos de uma cole&ccedil;&atilde;o ao final da lista</p><p id="xo0h6k_43">C#</p><div class="code-block" data-lang="csharp">
+List&lt;int&gt; maisNumeros = new List&lt;int&gt; { 3, 4, 5 };
+numeros.AddRange(maisNumeros);
+</div><p id="xo0h6k_45">IronPython</p><div class="code-block" data-lang="python">
+maisNumeros  = SystemList[int]([ 3, 4, 5 ])
+numeros.AddRange(maisNumeros)
+</div><p id="xo0h6k_47">Neste exemplo, os elementos da lista <code class="code" id="xo0h6k_49">maisNumeros</code> s&atilde;o adicionados ao final da lista <code class="code" id="xo0h6k_50">numeros</code>, resultando em uma lista que cont&eacute;m os elementos 2, 3, 4, e 5.</p></section><section class="chapter"><h3 id="remove-t-item" data-toc="remove-t-item"><code class="code" id="xo0h6k_57">Remove(T item)</code></h3><p id="xo0h6k_52">Remove a primeira ocorr&ecirc;ncia de um objeto espec&iacute;fico da lista</p><p id="xo0h6k_53">C#</p><div class="code-block" data-lang="csharp">
+numeros.Remove(1);
+</div><p id="xo0h6k_55">IronPython</p><div class="code-block" data-lang="python">
+numeros.Remove(1)
+</div></section><section class="chapter"><h3 id="contains-t-item" data-toc="contains-t-item"><code class="code" id="xo0h6k_64">Contains(T item)</code></h3><p id="xo0h6k_59">Verifica se um elemento est&aacute; na lista</p><p id="xo0h6k_60">C#</p><div class="code-block" data-lang="csharp">
+bool existe = numeros.Contains(2); // retorna true
+</div><p id="xo0h6k_62">IronPython</p><div class="code-block" data-lang="python">
+existe = numeros.Contains(2) # retorna True
+</div></section><section class="chapter"><h3 id="indexof-t-item" data-toc="indexof-t-item"><code class="code" id="xo0h6k_71">IndexOf(T item)</code></h3><p id="xo0h6k_66">Retorna o &iacute;ndice da primeira ocorr&ecirc;ncia de um elemento</p><p id="xo0h6k_67">C#</p><div class="code-block" data-lang="csharp">
+int indice = numeros.IndexOf(2); // retorna 0
+</div><p id="xo0h6k_69">IronPython</p><div class="code-block" data-lang="python">
+indice = numeros.IndexOf(2) # retorna 0
+</div></section><section class="chapter"><h3 id="insert-int-index-t-item" data-toc="insert-int-index-t-item"><code class="code" id="xo0h6k_78">Insert(int index, T item)</code></h3><p id="xo0h6k_73">Insere um elemento na lista na posi&ccedil;&atilde;o especificada</p><p id="xo0h6k_74">C#</p><div class="code-block" data-lang="csharp">
+numeros.Insert(0, 3); // insere 3 na posição 0
+</div><p id="xo0h6k_76">IronPython</p><div class="code-block" data-lang="python">
+numeros.Insert(0, 3) # insere 3 na posição 0
+</div></section><section class="chapter"><h3 id="sort" data-toc="sort"><code class="code" id="xo0h6k_85">Sort()</code></h3><p id="xo0h6k_80">Ordena os elementos da lista</p><p id="xo0h6k_81">C#</p><div class="code-block" data-lang="csharp">
+numeros.Sort();
+</div><p id="xo0h6k_83">IronPython</p><div class="code-block" data-lang="python">
+numeros.Sort()
+</div></section><section class="chapter"><h3 id="clear" data-toc="clear"><code class="code" id="xo0h6k_92">Clear()</code></h3><p id="xo0h6k_87">Remove todos os elementos da lista</p><p id="xo0h6k_88">C#</p><div class="code-block" data-lang="csharp">
+numeros.Clear();
+</div><p id="xo0h6k_90">IronPython</p><div class="code-block" data-lang="python">
+numeros.Clear()
+</div></section></section><div class="last-modified">Last modified: 28 November 2024</div><div data-feedback-placeholder="true"></div><div class="navigation-links _bottom"><a href="collections-system.html" class="navigation-links__prev">System</a><a href="collections-system-hashset.html" class="navigation-links__next">HashSet</a></div></article><div id="disqus_thread"></div></div></section></main></div><script src="https://resources.jetbrains.com/writerside/apidoc/6.10.0-b518/app.js"></script></body></html>

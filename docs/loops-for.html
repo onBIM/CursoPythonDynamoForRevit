@@ -1,0 +1,61 @@
+<!DOCTYPE html SYSTEM "about:legacy-compat">
+<html lang="en-US" data-preset="contrast" data-primary-color="#307FFF"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><meta charset="UTF-8"><meta name="robots" content="noindex"><meta name="built-on" content="2024-11-28T18:28:51.361723"><title>for | Conteúdo do Curso Python para Dynamo do Revit</title><script type="application/json" id="virtual-toc-data">[{"id":"descri-o","level":0,"title":"Descrição","anchor":"#descri-o"},{"id":"sintaxe","level":0,"title":"Sintaxe","anchor":"#sintaxe"},{"id":"exemplos","level":0,"title":"Exemplos:","anchor":"#exemplos"},{"id":"exerc-cios","level":0,"title":"Exercícios","anchor":"#exerc-cios"}]</script><script type="application/json" id="topic-shortcuts"></script><link href="https://resources.jetbrains.com/writerside/apidoc/6.10.0-b518/app.css" rel="stylesheet"><meta name="msapplication-TileColor" content="#000000"><link rel="apple-touch-icon" sizes="180x180" href="https://jetbrains.com/apple-touch-icon.png"><link rel="icon" type="image/png" sizes="32x32" href="https://jetbrains.com/favicon-32x32.png"><link rel="icon" type="image/png" sizes="16x16" href="https://jetbrains.com/favicon-16x16.png"><meta name="msapplication-TileImage" content="https://resources.jetbrains.com/storage/ui/favicons/mstile-144x144.png"><meta name="msapplication-square70x70logo" content="https://resources.jetbrains.com/storage/ui/favicons/mstile-70x70.png"><meta name="msapplication-square150x150logo" content="https://resources.jetbrains.com/storage/ui/favicons/mstile-150x150.png"><meta name="msapplication-wide310x150logo" content="https://resources.jetbrains.com/storage/ui/favicons/mstile-310x150.png"><meta name="msapplication-square310x310logo" content="https://resources.jetbrains.com/storage/ui/favicons/mstile-310x310.png"><meta name="image" content=""><!-- Open Graph --><meta property="og:title" content="for | Conteúdo do Curso Python para Dynamo do Revit"><meta property="og:description" content=""><meta property="og:image" content=""><meta property="og:site_name" content="Conteúdo do Curso Python para Dynamo do Revit Help"><meta property="og:type" content="website"><meta property="og:locale" content="en_US"><meta property="og:url" content="writerside-documentation/loops-for.html"><!-- End Open Graph --><!-- Twitter Card --><meta name="twitter:card" content="summary_large_image"><meta name="twitter:site" content=""><meta name="twitter:title" content="for | Conteúdo do Curso Python para Dynamo do Revit"><meta name="twitter:description" content=""><meta name="twitter:creator" content=""><meta name="twitter:image:src" content=""><!-- End Twitter Card --><!-- Schema.org WebPage --><script type="application/ld+json">{
+    "@context": "http://schema.org",
+    "@type": "WebPage",
+    "@id": "writerside-documentation/loops-for.html#webpage",
+    "url": "writerside-documentation/loops-for.html",
+    "name": "for | Conteúdo do Curso Python para Dynamo do Revit",
+    "description": "",
+    "image": "",
+    "inLanguage":"en-US"
+}</script><!-- End Schema.org --><!-- Schema.org WebSite --><script type="application/ld+json">{
+    "@type": "WebSite",
+    "@id": "writerside-documentation/#website",
+    "url": "writerside-documentation/",
+    "name": "Conteúdo do Curso Python para Dynamo do Revit Help"
+}</script><!-- End Schema.org --></head><body data-id="loops-for" data-main-title="for" data-article-props="{&quot;seeAlsoStyle&quot;:&quot;links&quot;}" data-template="article" data-breadcrumbs="Aula-003.md|Aula 003///Loops.md|Loops"><div class="wrapper"><main class="panel _main"><header class="panel__header"><div class="container"><h3>Conteúdo do Curso Python para Dynamo do Revit  Help</h3><div class="panel-trigger"></div></div></header><section class="panel__content"><div class="container"><article class="article" data-shortcut-switcher="inactive"><h1 data-toc="loops-for" id="loops-for.md">for</h1><section class="chapter"><h2 id="descri-o" data-toc="descri-o">Descri&ccedil;&atilde;o</h2><p id="-m7hf6z_7">O la&ccedil;o <code class="code" id="-m7hf6z_8">for</code> &eacute; utilizado para iterar sobre uma sequ&ecirc;ncia (como uma lista, tupla ou string) ou outros objetos iter&aacute;veis. O formato b&aacute;sico de um la&ccedil;o <code class="code" id="-m7hf6z_9">for</code> em Python &eacute;:</p></section><section class="chapter"><h2 id="sintaxe" data-toc="sintaxe">Sintaxe</h2><div class="code-block" data-lang="python">
+for item in iterável:
+    # bloco de código a ser executado para cada item
+</div></section><section class="chapter"><h2 id="exemplos" data-toc="exemplos">Exemplos:</h2><section class="chapter"><h3 id="exemplo-1" data-toc="exemplo-1">Exemplo 1</h3><p id="-m7hf6z_16">Iterando sobre uma lista</p><div class="code-block" data-lang="python">
+frutas = [&quot;maçã&quot;, &quot;banana&quot;, &quot;cereja&quot;]
+for fruta in frutas:
+    print(fruta)
+</div><p id="-m7hf6z_18">No exemplo acima, o la&ccedil;o <code class="code" id="-m7hf6z_19">for</code> ir&aacute; imprimir cada item na lista <code class="code" id="-m7hf6z_20">frutas</code>.</p></section><section class="chapter"><h3 id="exemplo-2" data-toc="exemplo-2">Exemplo 2</h3><p id="-m7hf6z_21">Usando a fun&ccedil;&atilde;o <code class="code" id="-m7hf6z_25">range</code></p><p id="-m7hf6z_22">A fun&ccedil;&atilde;o <code class="code" id="-m7hf6z_26">range</code> &eacute; muito &uacute;til para criar sequ&ecirc;ncias de n&uacute;meros.</p><div class="code-block" data-lang="python">
+for i in range(5):
+    print(i)
+</div><p id="-m7hf6z_24">Este c&oacute;digo ir&aacute; imprimir os n&uacute;meros de 0 a 4.</p></section><section class="chapter"><h3 id="exemplo-3" data-toc="exemplo-3">Exemplo 3</h3><p id="-m7hf6z_27">Iterando sobre uma string</p><div class="code-block" data-lang="python">
+palavra = &quot;Python&quot;
+for letra in palavra:
+    print(letra)
+</div><p id="-m7hf6z_29">O la&ccedil;o acima imprime cada letra da string <code class="code" id="-m7hf6z_30">palavra</code>.</p></section><section class="chapter"><h3 id="exemplo-4" data-toc="exemplo-4">Exemplo 4</h3><p id="-m7hf6z_31">Iterando sobre um dicion&aacute;rio</p><div class="code-block" data-lang="python">
+idades = {&quot;Ana&quot;: 25, &quot;Pedro&quot;: 32, &quot;João&quot;: 42}
+for nome, idade in idades.items():
+    print(f&quot;{nome} tem {idade} anos.&quot;)
+</div><p id="-m7hf6z_33">Neste exemplo, o la&ccedil;o <code class="code" id="-m7hf6z_34">for</code> percorre as chaves e valores do dicion&aacute;rio <code class="code" id="-m7hf6z_35">idades</code> e os imprime.</p></section><section class="chapter"><h3 id="exemplo-5" data-toc="exemplo-5">Exemplo 5</h3><p id="-m7hf6z_36">Uso de <code class="code" id="-m7hf6z_41">break</code> e <code class="code" id="-m7hf6z_42">continue</code> no <code class="code" id="-m7hf6z_43">for</code>:</p><ul class="list _bullet" id="-m7hf6z_37"><li class="list__item" id="-m7hf6z_44"><p><span class="control" id="-m7hf6z_46"><code class="code" id="-m7hf6z_47">break</code>:</span> Encerra o la&ccedil;o imediatamente.</p></li><li class="list__item" id="-m7hf6z_45"><p><span class="control" id="-m7hf6z_48"><code class="code" id="-m7hf6z_49">continue</code>:</span> Pula para a pr&oacute;xima itera&ccedil;&atilde;o.</p></li></ul><div class="code-block" data-lang="python">
+# Exemplo de break
+for num in range(10):
+    if num == 5:
+        break
+    print(num)
+
+# Exemplo de continue
+for num in range(10):
+    if num % 2 == 0:
+        continue
+    print(num)
+</div><aside class="prompt" data-type="note" data-title="" id="-m7hf6z_39"><p id="-m7hf6z_50"><code class="code" id="-m7hf6z_51">break</code> e <code class="code" id="-m7hf6z_52">continue</code> podem ser usados em loops <code class="code" id="-m7hf6z_53">for</code> e <code class="code" id="-m7hf6z_54">while</code>.</p></aside><p id="-m7hf6z_40">O primeiro loop interrompe a execu&ccedil;&atilde;o quando <code class="code" id="-m7hf6z_55">num</code> &eacute; igual a 5. O segundo loop pula a impress&atilde;o dos n&uacute;meros pares.</p></section></section><section class="chapter"><h2 id="exerc-cios" data-toc="exerc-cios">Exerc&iacute;cios</h2><section class="chapter"><h3 id="exerc-cio-1" data-toc="exerc-cio-1">Exerc&iacute;cio 1:</h3><p id="-m7hf6z_59">Iterando sobre uma lista</p><p id="-m7hf6z_60">Crie um programa que percorra uma lista de n&uacute;meros e imprima o quadrado de cada n&uacute;mero.</p><div class="code-block" data-lang="python">
+numeros = [1, 2, 3, 4, 5]
+for numero in numeros:
+    print(numero ** 2)
+</div></section><section class="chapter"><h3 id="exerc-cio-2" data-toc="exerc-cio-2">Exerc&iacute;cio 2</h3><p id="-m7hf6z_62">Utilizand a fun&ccedil;&atilde;o <code class="code" id="-m7hf6z_65">range</code></p><p id="-m7hf6z_63">Utilize a fun&ccedil;&atilde;o <code class="code" id="-m7hf6z_66">range</code> para imprimir os primeiros 10 n&uacute;meros pares.</p><div class="code-block" data-lang="python">
+for i in range(0, 20, 2):
+    print(i)
+</div></section><section class="chapter"><h3 id="exerc-cio-3" data-toc="exerc-cio-3">Exerc&iacute;cio 3</h3><p id="-m7hf6z_67">Iterando e modificando um dicion&aacute;rio</p><p id="-m7hf6z_68">Crie um programa que percorra um dicion&aacute;rio de pre&ccedil;os de produtos e aplique um desconto de 10% em cada um deles, imprimindo o novo dicion&aacute;rio com os pre&ccedil;os atualizados.</p><div class="code-block" data-lang="python">
+precos = {&quot;produto1&quot;: 100, &quot;produto2&quot;: 200, &quot;produto3&quot;: 300}
+novos_precos = {}
+
+for produto, preco in precos.items():
+    novos_precos[produto] = preco * 0.9
+    
+print(novos_precos)
+</div></section></section><div class="last-modified">Last modified: 28 November 2024</div><div data-feedback-placeholder="true"></div><div class="navigation-links _bottom"><a href="loops-while.html" class="navigation-links__prev">while</a><a href="loops-list-comprehension.html" class="navigation-links__next">List Comprehension</a></div></article><div id="disqus_thread"></div></div></section></main></div><script src="https://resources.jetbrains.com/writerside/apidoc/6.10.0-b518/app.js"></script></body></html>
