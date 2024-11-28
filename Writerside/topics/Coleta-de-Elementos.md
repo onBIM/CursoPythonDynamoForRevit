@@ -26,8 +26,6 @@ Os próprios nodes do Dynamo que coletam elementos usam o `FilteredElementCollec
 
 O procedimento abaixo mostra como usar o `FilteredElementCollector` para coletar elementos do Revit.
 
-Clique no ícone ➕ para expandir o procedimento.
-
 <procedure title="Usando o FilteredElementCollector" id="using-filtered-element-collector" collapsible="true" default-state="collapsed">
     <step>
         <p>Configurar o nosso node Python Script para usar o IronPython como engine.</p>
@@ -62,8 +60,7 @@ Clique no ícone ➕ para expandir o procedimento.
         <p>
             Para isso, usamos o método 
             <a href="https://www.revitapidocs.com/2024/c3523c35-4a07-9723-3c28-de3cc47b2ad0.htm"><code>OfCategory()</code></a> 
-            ou <a href="https://www.revitapidocs.com/2024/b0a5f22c-6951-c3af-cd29-1f28f574035d.htm"><code>OfClass()</code></a> 
-            do <code>collector</code>, respectivamente.
+            ou <a href="https://www.revitapidocs.com/2024/b0a5f22c-6951-c3af-cd29-1f28f574035d.htm"><code>OfClass()</code></a>.
         </p>
         <p>
             Por exemplo, se quisermos coletar todas as paredes do projeto usando o método <code>OfCategory()</code> 
@@ -76,7 +73,7 @@ Clique no ícone ➕ para expandir o procedimento.
             Note que usando o método <code>OfCategory()</code> todos os 
             elementos que pertencem à <code>BuiltInCategory.OST_Walls</code> serão coletados. Isso incluirá:
             <list>
-                <li>As instâncias de paredes de sistema.</li>
+                <li>As <b>instâncias</b> de paredes de sistema.</li>
                 <li>
                     <p>
                         Os <b><i>Types</i></b> de paredes. Sim, eles também serão coletados, 
@@ -93,7 +90,7 @@ Clique no ícone ➕ para expandir o procedimento.
         </warning>
         <p>
             Portanto, será necessário mais filtragens para obter os resultados que queremos, pois raramente iremos 
-            querer todos os elementos da categoria sem qualquer filtragem.
+            querer todos os elementos da categoria sem qualquer filtragem. Veremos como fazer isso na <a href="Aula-007.md"/>.
         </p>
         <note>
             Para ver uma lista completa de todas as <code>BuiltInCategory</code> acesse 
@@ -124,12 +121,12 @@ Clique no ícone ➕ para expandir o procedimento.
         <code-block lang="Python">
             walls = collector.OfCategory(BuiltInCategory.OST_Walls).ToElements()
         </code-block>
-        <img src="collect-walls.png" alt="Coletando paredes por categoria" style="block"/>
+        <img src="collect-walls.png" alt="Coletando paredes por categoria" style="block" thumbnail="true"/>
         <p>Por outro lado, se quisermos uma lista de <code>ElementId</code>, utilizamos o método <code>ToElementIds()</code>:</p>
         <code-block lang="Python">
             walls_ids = collector.OfCategory(BuiltInCategory.OST_Walls).ToElementIds()
         </code-block>
-        <img src="collect-walls-ids.png" alt="Coletando ids por categoria" style="block"/>
+        <img src="collect-walls-ids.png" alt="Coletando ids por categoria" style="block" thumbnail="true"/>
     </step>
 </procedure>
 
@@ -137,12 +134,12 @@ Clique no ícone ➕ para expandir o procedimento.
 
 Antes de coverter o `FilteredElementCollector` para lista podemos fazer muitas outras filtragens. 
 
-Para isso utilizamos o método [`WherePasses()`](https://www.revitapidocs.com/2024/42d4eef3-55a1-2739-0ef8-6bc1d9fc2755.htm) 
+Para isso utilizamos o método [`WherePasses()`](https://www.revitapidocs.com/2024/42d4eef3-55a1-2739-0ef8-6bc1d9fc2755.htm)  
 do `FilteredElementCollector`.
 
 Note que este método recebe um objeto do tipo [`ElementFilter`](https://www.revitapidocs.com/2024/b8b46cbf-9ecc-0745-ec53-c3c3b6510113.htm) como argumento.
 
-![wherepasses-method.png](wherepasses-method.png) {width="350"}
+![wherepasses-method.png](wherepasses-method.png) {width="400" thumbnail="true"}
 
 O `ElementFilter` é uma classe base que possui três classes principais derivadas que caracterizam o "tipo" de filtro: 
 
@@ -180,7 +177,7 @@ Veja a lista abaixo 👇
 
 ### Exemplos de uso do `WherePasses()`
 
-A seguir, mostramos alguns exemplos de uso do método `WherePasses()`.
+A seguir, mostramos alguns exemplos de uso do método `WherePasses()` para filtrar elementos.
 
 #### Usando um `ElementQuickFilter`
 
@@ -225,7 +222,7 @@ argumento.
 ![collecting-walls-and-floors.png](collecting-walls-and-floors.png) {thumbnail="true"}
 
 <note>
-    <p>Note que foi necessário mudarmos a engine Python para <code>IronPython</code> para que o código acima funcionasse.</p>
+    <p>Note também que foi necessário mudarmos a engine Python para <code>IronPython</code> para que o código acima funcionasse.</p>
     <p>Falamos sobre isso no tópico <a href="CPython-x-IronPython.md"></a></p>
 </note>
 

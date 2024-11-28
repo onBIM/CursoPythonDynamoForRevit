@@ -3,7 +3,7 @@
 Segundo a nossa experiência, o fluxo de trabalho para a criação de rotinas no Dynamo do Revit é 
 dividido em algumas etapas principais. Veja a imagem abaixo 👇.
 
-![fluxo-geral-de-rotinas.png](fluxo-geral-de-rotinas.png)
+![fluxo-geral-de-rotinas.png](fluxo-geral-de-rotinas.png) {thumbnail="true"}
 
 Não importa o tamanho da sua rotina ou quão complexa ela seja, na imensa maioria dos casos você passará por essas etapas.
 
