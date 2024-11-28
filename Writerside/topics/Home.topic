@@ -43,7 +43,7 @@
         </primary>
         
         <secondary>
-            <title>Objetivos e pré-requisitos</title>
+            <title>Objetivos e requisitos</title>
             <a href="Objetivos.md" type="cross-check"/>
             <a href="Requisitos.md" type="key"/>
         </secondary>

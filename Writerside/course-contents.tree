@@ -7,8 +7,8 @@
                  start-page="Home.topic">
 
     <toc-element topic="Home.topic"/>
-    <toc-element topic="Objetivos.md" hidden="true"/>
-    <toc-element topic="Requisitos.md" hidden="true"/>
+    <toc-element topic="Objetivos.md"/>
+    <toc-element topic="Requisitos.md"/>
     <toc-element topic="Aula-001.md">
         <toc-element topic="Introdução-ao-Python.md"/>
         <toc-element topic="O-Node-Python-Script.md"/>

@@ -1,5 +1,13 @@
 # Objetivos
 
+## onBIM Technology 
+![onBIM Logo](onbim-logo.png) {style="inline" width="150"} 
+
+Promovido pela [onBIM Technology](https://www.onbim.net), empresa com mais de 10 anos de experiência em desenvolvimento de soluções BIM, o curso
+foi elaborado para atender a demanda crescente por profissionais qualificados em programação Python aplicada ao Revit e ao
+Dynamo. O curso é voltado para estudantes, profissionais e empresas que desejam aprimorar suas habilidades em automação
+de tarefas, criação de scripts e desenvolvimento de soluções personalizadas e profissionais no Revit.
+
 ## Principal
 
 Fornecer uma base sólida sobre a utilização do Python em conjunto com o Dynamo e o

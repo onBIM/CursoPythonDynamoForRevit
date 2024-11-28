@@ -16,7 +16,7 @@ Segundo a documentação da API do Revit,
 > 
 {style="note"}
 
-![filtered-element-collector-class.png](filtered-element-collector-class.png)
+![filtered-element-collector-class.png](filtered-element-collector-class.png) {thumbnail="true"}
 
 Ela é a melhor maneira de coletar elementos do Revit, pois é a mais eficiente e a que consome menos recursos do computador.
 
@@ -85,7 +85,7 @@ Clique no ícone ➕ para expandir o procedimento.
                     <p>
                         Veja a imagem abaixo da inspeção de uma parede do modelo usando o 
                         <a href="https://github.com/jeremytammik/RevitLookup">Revit Lookup</a> 👇
-                       <img src="wall-inspection.png" alt="Inpeção de parede com o Revit Lookup" style="block" border-effect="line"/>
+                       <img src="wall-inspection.png" alt="Inpeção de parede com o Revit Lookup" style="block" border-effect="line" thumbnail="true"/>
                     </p>
                 </li>
                 <li>As instâncias de paredes <b><i>Model-in-place</i></b></li>
@@ -159,13 +159,13 @@ Veja a lista abaixo 👇
         <p><a href="https://www.revitapidocs.com/2024/3b8d6b55-0cab-1810-1188-840800e5eaa2.htm"><code>ElementLogicalFilter</code></a></p>
         <p>Essa classe é utilizada para combinar vários filtros</p>
         <p>Classes derivadas:</p>
-        <img src="element-logical-filter.png" alt="ElementLogicalFilter"/>
+        <img src="element-logical-filter.png" alt="ElementLogicalFilter" thumbnail="true" width="500"/>
     </step>
     <step>
         <p><a href="https://www.revitapidocs.com/2024/ebc95d82-11fc-69f6-2df1-52331dd36443.htm"><code>ElementQuickFilter</code></a></p>
         <p>Essa classe é utilizada para filtrar elementos de forma rápida</p>
         <p>Classes derivadas:</p>
-        <img src="element-quick-filter.png" alt="ElementQuickFilter"/>
+        <img src="element-quick-filter.png" alt="ElementQuickFilter" thumbnail="true" width="500"/>
         <p>As mais usadas são: <code>BoundingBoxIntersectsFilter</code> e <code>ElementMulticategoryFilter</code></p>
     </step>
     <step>
@@ -173,7 +173,7 @@ Veja a lista abaixo 👇
         <p>Essa classe é utilizada para filtrar elementos de forma mais lenta.</p>
         <warning>Cuidado. Esse filtro é bastante lento e consome bem mais memória, como pode ser visto na sessão <i>Remarks</i> da documentação.</warning>
         <p>Classes derivadas:</p>
-        <img src="element-slow-filter.png" alt="ElementSlowFilter"/>
+        <img src="element-slow-filter.png" alt="ElementSlowFilter" thumbnail="true" width="500"/>
         <p>A mais usada é: <code>ElementIntersectsFilter</code></p>
     </step>
 </procedure>
@@ -190,7 +190,7 @@ para filtrar elementos de várias categorias.
 Esse filtro possui várias formas de instanciá-lo, porém a mais comum é passando uma lista de `BuiltInCategory` como 
 argumento.
 
-![mult-cat-filter-constructors.png](mult-cat-filter-constructors.png)
+![mult-cat-filter-constructors.png](mult-cat-filter-constructors.png) {thumbnail="true"}
 
 ```python
     # Criando uma System List de BuiltInCategory, 
@@ -222,7 +222,7 @@ argumento.
     <p>Essa é forma que o Python permite quebrar uma linha de código sem causar erros de sintaxe.</p>
 </tip>
 
-![collecting-walls-and-floors.png](collecting-walls-and-floors.png)
+![collecting-walls-and-floors.png](collecting-walls-and-floors.png) {thumbnail="true"}
 
 <note>
     <p>Note que foi necessário mudarmos a engine Python para <code>IronPython</code> para que o código acima funcionasse.</p>
