@@ -175,9 +175,11 @@ Veja a lista abaixo 👇
     </step>
 </procedure>
 
-### Exemplos de uso do `WherePasses()`
+### Exemplos de filtragem com `WherePasses()`
 
-A seguir, mostramos alguns exemplos de uso do método `WherePasses()` para filtrar elementos.
+Uma das formas mais diretas para realizar filtragem dos elementos é como método `WherePasses()` para filtrar.
+
+Em seguida veremos alguns exemplos de como utilizá-lo.
 
 #### Usando um `ElementQuickFilter`
 
@@ -190,22 +192,22 @@ argumento.
 ![mult-cat-filter-constructors.png](mult-cat-filter-constructors.png) {thumbnail="true"}
 
 ```python
-    # Criando uma System List de BuiltInCategory, 
-    # pois o construtor do ElementMulticategoryFilter 
-    # não aceita uma lista Python    
-    cats = SystemList[BuiltInCategory]([
-        BuiltInCategory.OST_Walls,
-        BuiltInCategory.OST_Floors
-    ])
-    
-    multCatFilter = ElementMulticategoryFilter(cats)
-    
-    walls_and_floors = \
-        FilteredElementCollector(doc) \
-        .WherePasses(multCatFilter) \
-        .ToElements()
-    
-    result = walls_and_floors
+# Criando uma System List de BuiltInCategory, 
+# pois o construtor do ElementMulticategoryFilter 
+# não aceita uma lista Python    
+cats = SystemList[BuiltInCategory]([
+    BuiltInCategory.OST_Walls,
+    BuiltInCategory.OST_Floors
+])
+
+multCatFilter = ElementMulticategoryFilter(cats)
+
+walls_and_floors = \
+    FilteredElementCollector(doc) \
+    .WherePasses(multCatFilter) \
+    .ToElements()
+
+result = walls_and_floors
 ```
 
 <note>
@@ -226,4 +228,58 @@ argumento.
     <p>Falamos sobre isso no tópico <a href="CPython-x-IronPython.md"></a></p>
 </note>
 
+#### Usando um `ElementLogicalFilter`
 
+Vamos usar o `ElementLogicalFilter` para combinar dois filtros.
+
+No exemplo a seguir queremos coletar todas as _Furnitures_ e _Caseworks_ que estão sobre o piso.
+
+![kitchen-to-collect-furniture-on-floor.png](kitchen-to-collect-furniture-on-floor.png) {thumbnail="true"}
+
+Para isso vamos combinar um filtro de categoria com um filtro de interseção de _BoundingBox_.
+
+```python
+1.  # Categorias a filtrar	
+2.  cats = SystemList[BuiltInCategory]([
+3.      BuiltInCategory.OST_Furniture,
+4.      BuiltInCategory.OST_Casework
+5.  ])
+6.
+7.  # Criando o filtro de multi-categoria
+8.  multiCatFilter = ElementMulticategoryFilter(cats)
+9.
+10. # Obtendo o piso à partir da seleção do usuário no Dynamo
+11. floor = UnwrapElement(IN[0])
+12.
+13. bbox = floor.get_BoundingBox(None)
+14. outline = Outline(bbox.Min, bbox.Max)
+15.
+16. # Criando um filtro de interseção de BoundingBox
+17. bboxIntersectsFilter = BoundingBoxIntersectsFilter(outline)
+18.
+19. # Criando um filtro lógico AND
+20. filtersToCombine = SystemList[ElementFilter]([
+21.     multiCatFilter,
+22.     bboxIntersectsFilter
+23. ])
+24.
+25. logicalAndFilter = LogicalAndFilter(filtersToCombine)
+26.
+27. furnitures_and_caseworks_on_floor = \
+28.     FilteredElementCollector(doc) \
+29.     .WherePasses(logicalAndFilter) \
+30.     .ToElements()
+31.
+32. result = furnitures_and_caseworks_on_floor
+```
+{collapsible="true" default-state="collapsed" collapsed-title="Código para coletar Furnitures e Caseworks sobre o piso"}
+
+![collect-furnitures_and-caseworks-on-floor.png](collect-furnitures_and-caseworks-on-floor.png) {thumbnail="true"}
+
+<note>
+	<p>
+		Veja que foi necessário utilizar o método <code>UnwrapElement()</code> para <b>converter</b> o elemento 
+		selecionado através do Dynamo para a API do Revit
+	</p>
+	<p>Falaremos mais sobre adiante.</p>
+</note>
