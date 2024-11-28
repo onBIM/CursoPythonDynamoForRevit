@@ -49,11 +49,7 @@ O procedimento abaixo mostra como usar o `FilteredElementCollector` para coletar
             collector = FilteredElementCollector(doc)
         </code-block>
         <p>Usando nosso template, como recomendado, ao final seu código deve ter algo parecido com isso:</p>
-        <code-block lang="python" 
-                    src="../resources/revit-api-imports.py" 
-                    collapsible="true" 
-                    collapsed-title="Código básico para usar API do Revit" 
-                    default-state="collapsed"/>
+        <code-block lang="python" src="../resources/python/revit-api-imports.py" collapsible="true" collapsed-title="Código básico para usar API do Revit" default-state="collapsed"/>
     </step>
     <step>
         <p>Filtrando por Categoria ou pela Classe que representa a instância de família de sistema.</p>
@@ -180,6 +176,8 @@ Veja a lista abaixo 👇
 Uma das formas mais diretas para realizar filtragem dos elementos é como método `WherePasses()` para filtrar.
 
 Em seguida veremos alguns exemplos de como utilizá-lo.
+
+<note>Vamos utilizar o modelo <b>rac_basic_sample_project.rvt</b> nos nossos exemplos.</note>
 
 #### Usando um `ElementQuickFilter`
 

@@ -66,9 +66,8 @@ e _Caseworks_ que estão sobre um piso, adapte o código utilzando o método `Wh
 filtrar somente os elementos que são _Chairs_ (cadeiras).
 
 <chapter title="Solução" collapsible="true" default-state="collapsed">
+	<code-block src="../resources/python/collecting-chairs.py" lang="Python" collapsible="true" collapsed-title="Código final" default-state="collapsed"/>
 	<img src="collecting-chairs.png" alt="collecting-chairs.png" thumbnail="true" width="600" style="block"/>
-	<p>Veja como ficou o código final 👇</p>
-	<code-block src="../resources/python/collecting-chairs.py" lang="Python" collapsible="true" collapsed-title="Código" default-state="collapsed"/>
 </chapter>
 
 

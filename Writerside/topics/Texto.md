@@ -85,7 +85,7 @@ umaspalavras = umastring.split(" ")
 ```
 
 ## Exercício {id="eq-segundo-grau-com-texto"}
-Melhorar os resultados do exercício da [Equação do Segundo Grau](Número.md#number-exercise)
+Melhorar os resultados do exercício da [Equação do Segundo Grau](Número.md#equacao-segundo-grau)
 
 Os resultados devem mostrar a fórmula da equação e também os resultados das raízes, caso existam.
 Se não existirem, o script deve informar que a equação não possui raízes.
