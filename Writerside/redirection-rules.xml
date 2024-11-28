@@ -29,4 +29,8 @@
         <description>Created after removal of "intro" from Conteúdo do Curso Python para Dynamo do Revit</description>
         <accepts>Course-Intro.html</accepts>
     </rule>
+    <rule id="6b418396">
+        <description>Created after removal of "Curso de Python para Dynamo do Revit" from Conteúdo do Curso Python para Dynamo do Revit</description>
+        <accepts>course-intro.html</accepts>
+    </rule>
 </rules>

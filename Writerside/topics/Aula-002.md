@@ -1,5 +1,10 @@
 # Aula 002
 
+Nesta aula, aprenderemos sobre três dos mais básicos e essenciais tipos de dados em Python:
+Booleanos, Texto e Números. Discutiremos como manipulá-los, as principais operações básicas e avançadas,
+e aplicaremos esses conhecimentos em exercícios práticos. Exploraremos ainda como booleanos e operações
+numéricas são usados na API do Revit.
+
 ## Visão Geral dos Tópicos: Booleanos, Texto e Números
 
 ### Introdução

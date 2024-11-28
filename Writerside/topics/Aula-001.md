@@ -1,5 +1,12 @@
 # Aula 001
 
+![python-for-revit](python-dynamo-revit.png)
+
+Nessa aula, começaremos com uma introdução à linguagem Python, explorando sua história, características e aplicações.
+Abordaremos a estrutura e execução de um script Python, e discutiremos as diferenças entre CPython e IronPython.
+Também apresentaremos como utilizar bibliotecas externas essenciais e o template IronPython onBIM para
+integração no Revit.
+
 ## Resumo dos Tópicos
 
 ### Introdução ao Python
@@ -23,8 +30,6 @@ Este capítulo introduz bibliotecas externas que podem ser utilizadas em projeto
 como instalá-las.
 
 ### Template IronPython onBIM
-
-[onBIM Technology site](https://www.onbim.net)
 
 Este capítulo fornece o template onBIM para integração de Python na modelagem de informações de construção (BIM), 
 através do Revit, comentando linha-a-linha e mostrando como configurá-lo no PyCharm.

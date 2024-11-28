@@ -1,3 +1,4 @@
 # Aula 006
 
-Nesta aula vamos aprender os princípios de como progrmar para a API do Revit.
+Finalizaremos aprendendo os princípios de programação para a API do Revit,
+consolidando os conhecimentos adquiridos ao longo do curso e aplicando-os em projetos reais.
