@@ -11,7 +11,7 @@ O método `Select` é utilizado para **aplicar** uma função a cada elemento da
 > 
 {style="warning"}
 
-## Exemplo 1
+## Exemplo
 
 Vamos supor que tenhamos uma lista de números e queremos obter o quadrado de cada um deles.
 
