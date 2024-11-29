@@ -43,3 +43,33 @@ OUT = pessoas_ordenadas.Select(lambda p: f"{p.nome} - {p.idade} anos")
 ```
 
 ![linq-orderby-people-byname.png](linq-orderby-people-byname.png) {thumbnail="true" width="700"}
+
+> Se quisermos ordenar as pessoas pelo nome de forma decrescente, podemos usar o método `OrderByDescending`.
+> 
+{style="note"}
+
+```python
+# ordena as pessoas pelo nome de forma decrescente
+pessoas_ordenadas = pessoas.OrderByDescending(lambda p: p.nome)
+```
+
+## Exercício
+
+Colete os Rooms do **Level 1** do modelo **rac_basic_sample_project_rvt** e ordene-os pelo nome.
+
+<chapter title="Solução" collapsible="true" default-state="collapsed">
+	<code-block src="../resources/python/collect-rooms-ordered-by-name.py" 
+				lang="Python"
+				collapsible="true" 
+				collapsed-title="Código principal" 
+				default-state="collapsed"
+				include-lines="53-56,74-76,88-93,103-131"/>
+	<img src="collect-rooms-ordered-by-name.png" 
+         alt="collect-rooms-ordered-by-name" 
+         thumbnail="true" 
+         style="block"
+         width="700"
+		 border-effect="rounded"/>
+	<br/>
+	<p>Baixe o código completo aqui 👉 <resource src="collect-rooms-ordered-by-name.py"/></p>
+</chapter>
