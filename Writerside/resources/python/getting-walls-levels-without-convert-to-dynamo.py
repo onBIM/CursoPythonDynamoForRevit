@@ -52,7 +52,21 @@ from Autodesk.Revit.DB import *
 # FUNCTIONS
 # BEGIN>>>>>
 
-def GetElementById(document, elementId):
+def GetElementById(document, elementId): 
+    """
+    Retorna um elemento de um documento usando o ID exclusivo do elemento.
+
+    Esta função acessa o documento fornecido para localizar e retornar o
+    elemento com o ID especificado. O ID deve ser exclusivo dentro do
+    contexto do documento. Se o elemento for encontrado, ele retorna o elemento.
+    A operação depende do método `GetElement` do documento.
+
+    @param document: O Documento do qual o elemento deve ser 
+        recuperado.
+    @param elementId: O ID do elemento a ser 
+        recuperado do documento.
+    @return: O elemento obtido do documento que corresponde ao ID fornecido.
+    """
     return document.GetElement(elementId)
 
 # FUNCTIONS
@@ -83,11 +97,11 @@ try:
             lambda wall: 
             wall.WallType.Kind == WallKind.Basic
             and not wall.IsStackedWallMember
-        ) \
+        )
     
     walls_levels = \
         basic_walls \
-        .Select(lambda wall: GetElementById(doc, wall.LevelId)) \
+        .Select(lambda wall: GetElementById(doc, wall.LevelId))
     
     result = [
         basic_walls,

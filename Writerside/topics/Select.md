@@ -82,7 +82,7 @@ Faça um código que obtenha o **_Level_** de todas as paredes da família _Basi
 <chapter title="Solução" collapsible="true" default-state="collapsed">
 	<code-block src="../resources/python/getting-walls-levels-without-convert-to-dynamo.py" 
 				lang="Python" 
-				include-lines="52-59,72-107"
+				include-lines="52-55,70-73,86-121"
 				collapsible="true"
 				collapsed-title="Códgigo sem conversão para elementos do Dynamo"/>
 	<p>
@@ -101,13 +101,13 @@ Faça um código que obtenha o **_Level_** de todas as paredes da família _Basi
 	<br/>
 	<code-block src="../resources/python/getting-walls-levels-with-convertion-to-dynamo.py" 
 				lang="Python" 
-				include-lines="92-95"
+				include-lines="106-109"
 				collapsible="true"
 				collapsed-title="Códgigo convertendo os elementos para o Dynamo"/>
 	<img src="getting-walls-levels-with-convertion-to-dynamo.png" 
 		 alt="getting-walls-levels-with-convertion-to-dynamo.png"
 		 thumbnail="true" 
-		 style="block"/>
+		 style="block" />
 	<p>
 		Baixe o código final aqui 👉
 		<resource src="../resources/python/getting-walls-levels-with-convertion-to-dynamo.py"/>
