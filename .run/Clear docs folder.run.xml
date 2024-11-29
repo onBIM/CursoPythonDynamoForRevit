@@ -1,0 +1,11 @@
+<component name="ProjectRunConfigurationManager">
+  <configuration default="false" name="Clear docs folder" type="BatchConfigurationType" factoryName="Batch">
+    <module name="CursoPythonDynamoForRevit" />
+    <option name="INTERPRETER_OPTIONS" value="" />
+    <option name="WORKING_DIRECTORY" value="./batch-files" />
+    <option name="PARENT_ENVS" value="true" />
+    <option name="SCRIPT_NAME" value="clear_docs.bat" />
+    <option name="PARAMETERS" value="&quot;D:\OneDrive\onBIM\Eventos\Curso Python for Dynamo 2024\CursoPythonDynamoForRevit\docs&quot;" />
+    <method v="2" />
+  </configuration>
+</component>

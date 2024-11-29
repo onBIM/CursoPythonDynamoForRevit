@@ -1,0 +1,82 @@
+<!DOCTYPE html SYSTEM "about:legacy-compat">
+<html lang="en-US" data-preset="contrast" data-primary-color="#307FFF"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><meta charset="UTF-8"><meta name="robots" content="noindex"><meta name="built-on" content="2024-11-29T17:03:54.9945052"><title>while | Conteúdo do Curso Python para Dynamo do Revit</title><script type="application/json" id="virtual-toc-data">[{"id":"descri-o","level":0,"title":"Descrição","anchor":"#descri-o"},{"id":"sintaxe","level":0,"title":"Sintaxe","anchor":"#sintaxe"},{"id":"exemplos","level":0,"title":"Exemplos","anchor":"#exemplos"},{"id":"exerc-cios","level":0,"title":"Exercícios","anchor":"#exerc-cios"}]</script><script type="application/json" id="topic-shortcuts"></script><link href="https://resources.jetbrains.com/writerside/apidoc/6.10.0-b518/app.css" rel="stylesheet"><meta name="msapplication-TileColor" content="#000000"><link rel="apple-touch-icon" sizes="180x180" href="https://jetbrains.com/apple-touch-icon.png"><link rel="icon" type="image/png" sizes="32x32" href="https://jetbrains.com/favicon-32x32.png"><link rel="icon" type="image/png" sizes="16x16" href="https://jetbrains.com/favicon-16x16.png"><meta name="msapplication-TileImage" content="https://resources.jetbrains.com/storage/ui/favicons/mstile-144x144.png"><meta name="msapplication-square70x70logo" content="https://resources.jetbrains.com/storage/ui/favicons/mstile-70x70.png"><meta name="msapplication-square150x150logo" content="https://resources.jetbrains.com/storage/ui/favicons/mstile-150x150.png"><meta name="msapplication-wide310x150logo" content="https://resources.jetbrains.com/storage/ui/favicons/mstile-310x150.png"><meta name="msapplication-square310x310logo" content="https://resources.jetbrains.com/storage/ui/favicons/mstile-310x310.png"><meta name="image" content=""><!-- Open Graph --><meta property="og:title" content="while | Conteúdo do Curso Python para Dynamo do Revit"><meta property="og:description" content=""><meta property="og:image" content=""><meta property="og:site_name" content="Conteúdo do Curso Python para Dynamo do Revit Help"><meta property="og:type" content="website"><meta property="og:locale" content="en_US"><meta property="og:url" content="writerside-documentation/loops-while.html"><!-- End Open Graph --><!-- Twitter Card --><meta name="twitter:card" content="summary_large_image"><meta name="twitter:site" content=""><meta name="twitter:title" content="while | Conteúdo do Curso Python para Dynamo do Revit"><meta name="twitter:description" content=""><meta name="twitter:creator" content=""><meta name="twitter:image:src" content=""><!-- End Twitter Card --><!-- Schema.org WebPage --><script type="application/ld+json">{
+    "@context": "http://schema.org",
+    "@type": "WebPage",
+    "@id": "writerside-documentation/loops-while.html#webpage",
+    "url": "writerside-documentation/loops-while.html",
+    "name": "while | Conteúdo do Curso Python para Dynamo do Revit",
+    "description": "",
+    "image": "",
+    "inLanguage":"en-US"
+}</script><!-- End Schema.org --><!-- Schema.org WebSite --><script type="application/ld+json">{
+    "@type": "WebSite",
+    "@id": "writerside-documentation/#website",
+    "url": "writerside-documentation/",
+    "name": "Conteúdo do Curso Python para Dynamo do Revit Help"
+}</script><!-- End Schema.org --></head><body data-id="loops-while" data-main-title="while" data-article-props="{&quot;seeAlsoStyle&quot;:&quot;links&quot;}" data-template="article" data-breadcrumbs="Aula-003.md|Aula 003///Loops.md|Loops"><div class="wrapper"><main class="panel _main"><header class="panel__header"><div class="container"><h3>Conteúdo do Curso Python para Dynamo do Revit  Help</h3><div class="panel-trigger"></div></div></header><section class="panel__content"><div class="container"><article class="article" data-shortcut-switcher="inactive"><h1 data-toc="loops-while" id="loops-while.md">while</h1><section class="chapter"><h2 id="descri-o" data-toc="descri-o">Descri&ccedil;&atilde;o</h2><p id="z9zkllj_7">O loop <code class="code" id="z9zkllj_10">while</code> &eacute; usado para executar um bloco de c&oacute;digo repetidamente enquanto uma condi&ccedil;&atilde;o for verdadeira.</p><p id="z9zkllj_8">&Eacute; &uacute;til quando voc&ecirc; n&atilde;o sabe quantas vezes o loop precisa ser executado.</p><aside class="prompt" data-type="tip" data-title="" id="z9zkllj_9"><p id="z9zkllj_11">&Eacute; importante garantir que a condi&ccedil;&atilde;o do loop seja alterada em algum momento para evitar um loop infinito.</p></aside></section><section class="chapter"><h2 id="sintaxe" data-toc="sintaxe">Sintaxe</h2><div class="code-block" data-lang="python">
+while condicao:
+    # Código a ser executado
+</div></section><section class="chapter"><h2 id="exemplos" data-toc="exemplos">Exemplos</h2><section class="chapter"><h3 id="exemplo-1-contagem-regressiva" data-toc="exemplo-1-contagem-regressiva">Exemplo 1: Contagem regressiva</h3><div class="code-block" data-lang="python">
+# inicializa o contador
+contador = 5
+
+# enquanto o contador for maior que 0, 
+# imprime o valor do contador e decrementa 1
+while contador &gt; 0:
+    print(contador)
+    contador -= 1 # decrementa 1
+
+print(&quot;Fim da contagem regressiva.&quot;)
+</div></section><section class="chapter"><h3 id="exemplo-2-encontrar-a-soma-de-n-meros-de-1-a-10" data-toc="exemplo-2-encontrar-a-soma-de-n-meros-de-1-a-10">Exemplo 2: Encontrar a soma de n&uacute;meros de 1 a 10</h3><div class="code-block" data-lang="python">
+# inicializa a variável de soma e o número
+soma = 0
+numero = 1
+
+while numero &lt;= 10:
+    soma += numero
+    numero += 1
+    
+print(&quot;A soma dos números de 1 a 10 é:&quot;, soma)
+</div></section><section class="chapter"><h3 id="exemplo-3-adivinhar-o-n-mero-secreto" data-toc="exemplo-3-adivinhar-o-n-mero-secreto">Exemplo 3: Adivinhar o n&uacute;mero secreto</h3><div class="code-block" data-lang="python">
+import random
+
+# gera um número aleatório entre 1 e 20
+numero_secreto = random.randint(1, 20)
+
+# inicializa o palpite e o contador de tentativas
+palpite = None
+tentativas = 0
+
+while palpite != numero_secreto:
+    palpite = int(input(&quot;Adivinhe o número secreto (entre 1 e 20): &quot;))
+    
+    tentativas += 1
+    if palpite &lt; numero_secreto:
+        print(&quot;Muito baixo!&quot;)
+    elif palpite &gt; numero_secreto:
+        print(&quot;Muito alto!&quot;)
+
+print(
+    &quot;Parabéns! Você adivinhou o número secreto&quot; + 
+    f&quot;{numero_secreto} em {tentativas} tentativas.&quot;
+)
+</div></section></section><section class="chapter"><h2 id="exerc-cios" data-toc="exerc-cios">Exerc&iacute;cios</h2><section class="chapter"><h3 id="exerc-cio-1" data-toc="exerc-cio-1">Exerc&iacute;cio 1</h3><p id="z9zkllj_22">Imprimindo n&uacute;meros pares de 1 a 10</p><p id="z9zkllj_23">Escreva um programa que imprime os n&uacute;meros pares de 1 a 10 usando um loop <code class="code" id="z9zkllj_25">while</code>.</p><div class="code-block" data-lang="python">
+numero = 2
+while numero &lt;= 10:
+    print(numero)
+    numero += 2
+</div></section><section class="chapter"><h3 id="exerc-cio-2" data-toc="exerc-cio-2">Exerc&iacute;cio 2</h3><p id="z9zkllj_26">Escreva um programa que solicita ao usu&aacute;rio um n&uacute;mero e imprime a tabuada desse n&uacute;mero usando um loop <code class="code" id="z9zkllj_28">while</code>.</p><div class="code-block" data-lang="python">
+numero = int(input(&quot;Digite um número: &quot;))
+multiplicador = 1
+
+while multiplicador &lt;= 10:
+    print(f&quot;{numero} x {multiplicador} = {numero * multiplicador}&quot;)
+    multiplicador += 1
+</div></section><section class="chapter"><h3 id="exerc-cio-3" data-toc="exerc-cio-3">Exerc&iacute;cio 3</h3><p id="z9zkllj_29">Escreva um programa que solicita ao usu&aacute;rio uma senha e continua solicitando at&eacute; que a senha digitada seja &quot;python&quot;.</p><div class="code-block" data-lang="python">
+senha = &quot;&quot;
+
+while senha != &quot;python&quot;:
+senha = input(&quot;Digite a senha: &quot;)
+
+print(&quot;Senha correta!&quot;)
+</div></section></section><div class="last-modified">Last modified: 29 November 2024</div><div data-feedback-placeholder="true"></div><div class="navigation-links _bottom"><a href="loops.html" class="navigation-links__prev">Loops</a><a href="loops-for.html" class="navigation-links__next">for</a></div></article><div id="disqus_thread"></div></div></section></main></div><script src="https://resources.jetbrains.com/writerside/apidoc/6.10.0-b518/app.js"></script></body></html>

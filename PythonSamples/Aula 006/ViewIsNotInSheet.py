@@ -73,9 +73,9 @@ try:
     
     viewports = \
         FilteredElementCollector(doc) \
-            .OfClass(Viewport) \
-            .WhereElementIsNotElementType() \
-            .ToElements()
+        .OfClass(Viewport) \
+        .WhereElementIsNotElementType() \
+        .ToElements()
     
     # Com List Comprehension
     # viewIdsInSheets = [
@@ -87,17 +87,17 @@ try:
     
     viewsNotInSheets = \
         FilteredElementCollector(doc) \
-            .OfCategory(BuiltInCategory.OST_Views) \
-            .WhereElementIsNotElementType() \
-            .Where(
-                lambda view:
-                view is not None
-                and not view.IsTemplate
-                and view is not ViewSheet
-                and view.Id not in viewIdsInSheets
-                and len(view.GetDependentViewIds()) == 0
-            ) \
-            .Select(lambda view: view.ToDSType(True))
+        .OfCategory(BuiltInCategory.OST_Views) \
+        .WhereElementIsNotElementType() \
+        .Where(
+            lambda view:
+            view is not None
+            and not view.IsTemplate
+            and view is not ViewSheet
+            and view.Id not in viewIdsInSheets
+            and len(view.GetDependentViewIds()) == 0
+        ) \
+        .Select(lambda view: view.ToDSType(True))
     
     result = viewsNotInSheets
     

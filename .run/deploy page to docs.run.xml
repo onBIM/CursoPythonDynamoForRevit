@@ -1,0 +1,8 @@
+<component name="ProjectRunConfigurationManager">
+  <configuration default="false" name="deploy page to docs" type="CompoundRunConfigurationType">
+    <toRun name="Clear docs folder" type="BatchConfigurationType" />
+    <toRun name="PDF (course-contents)" type="StardustRunConfiguration" />
+    <toRun name="WEB (course-contents)" type="StardustRunConfiguration" />
+    <method v="2" />
+  </configuration>
+</component>

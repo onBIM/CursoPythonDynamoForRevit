@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE topic
+        SYSTEM "https://resources.jetbrains.com/writerside/1.0/xhtml-entities.dtd">
+<topic xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:noNamespaceSchemaLocation="https://resources.jetbrains.com/writerside/1.0/topic.v2.xsd"
+       title="Home" id="Home" help-id="home">
+    
+    <section-starting-page>
+        <title>
+            Python para Dynamo do Revit
+        </title>
+        <description>
+            Seja bem-vindo! 
+            Este curso foi cuidadosamente estruturado para capacitar
+            profissionais no uso da linguagem de programação Python em conjunto com o Dynamo do Revit.
+        </description>
+
+        <!--    Add up to 2 topics that you want to promote. Use the "type" attribute to select an icon.    -->
+        <spotlight>
+            <a href="https://www.onbim.net" type="navigation" summary="www.onbim.net">onBIM Technology</a>
+            <a href="https://www.linkedin.com/in/ricardyn/" type="account" summary="LinkedIn">Ricardo Freitas</a>
+        </spotlight>
+
+        <primary>
+            <title>Conteúdo</title>
+            <a href="Aula-001.md" type="check-list"/>
+            
+            <a href="Aula-002.md" type="check-list"/>
+            
+            <a href="Aula-003.md" type="check-list"/>
+            
+            <a href="Aula-004.md" type="check-list"/>
+            
+            <a href="Aula-005.md" type="check-list"/>
+            
+            <a href="Aula-006.md" type="check-list"/>
+            
+            <a href="Aula-007.md" type="check-list"/>
+            
+            <a href="Aula-008.md" type="check-list"/>
+            
+            <a href="Aula-009.md" type="check-list"/>
+        </primary>
+        
+        <secondary>
+            <title>Objetivos e requisitos</title>
+            <a href="Objetivos.md" type="cross-check"/>
+            <a href="Requisitos.md" type="key"/>
+        </secondary>
+
+        <misc>
+            <cards narrow="true">
+                <title>Referências</title>
+                <a href="https://www.revitapidocs.com/" 
+                   summary="Documentação oficial da API do Revit" 
+                   type="documents">
+                    Revit API docs
+                </a>
+                <a href="https://primer.dynamobim.org/"
+                   summary="Dynamo Primer"
+                   type="documents">
+                    Documentação oficial do Dynamo
+                </a>
+                <a href="https://ironpython.net/documentation/"
+                   summary="Documentação oficial do IronPython"
+                   type="documents">
+                    Documentação oficial do IronPython
+                </a>
+                <a href="https://amzn.to/3NZIj1Y" 
+                   summary="Livro de Simon Whitbread." 
+                   type="learn">
+                    Mastering Autodesk Revit
+                </a>
+            </cards>
+
+            <links>
+                <group>
+                    <title>Outros links relacionados</title>
+                    <a href="https://github.com/onBIM/CursoPythonDynamoForRevit/pdf/pdfSourceCOURSE-CONTENTS.pdf" 
+                       summary="Clique para baixar o conteúdo em PDF">
+                        Baixar esse conteúdo em PDF
+                    </a>
+                </group>
+            </links>
+        </misc>
+    </section-starting-page>
+</topic>

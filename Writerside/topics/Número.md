@@ -114,7 +114,7 @@ b = SystemMath.Sqrt(a)
 print(b) # 5.0
 ```
 
-## Exercício {id="number-exercise"}
+## Exercício {id="equacao-segundo-grau"}
 
 Fazer um script para calcular as raízes de uma equação do segundo grau.
 

@@ -1,8 +1,0 @@
-<component name="ProjectRunConfigurationManager">
-  <configuration default="false" name="Web Archive (course-contents)" type="StardustRunConfiguration" factoryName="save-as-zip">
-    <option name="folderPath" value="$PROJECT_DIR$/docs" />
-    <option name="instanceId" value="course-contents" />
-    <option name="instanceName" value="Conteúdo do Curso Python para Dynamo do Revit" />
-    <method v="2" />
-  </configuration>
-</component>

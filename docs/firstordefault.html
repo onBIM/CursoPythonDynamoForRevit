@@ -1,0 +1,72 @@
+<!DOCTYPE html SYSTEM "about:legacy-compat">
+<html lang="en-US" data-preset="contrast" data-primary-color="#307FFF"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><meta charset="UTF-8"><meta name="robots" content="noindex"><meta name="built-on" content="2024-11-29T17:03:55.0095062"><title>FirstOrDefault | Conteúdo do Curso Python para Dynamo do Revit</title><script type="application/json" id="virtual-toc-data">[{"id":"defini-o","level":0,"title":"Definição","anchor":"#defini-o"},{"id":"exemplos","level":0,"title":"Exemplos","anchor":"#exemplos"},{"id":"exerc-cio","level":0,"title":"Exercício","anchor":"#exerc-cio"}]</script><script type="application/json" id="topic-shortcuts"></script><link href="https://resources.jetbrains.com/writerside/apidoc/6.10.0-b518/app.css" rel="stylesheet"><meta name="msapplication-TileColor" content="#000000"><link rel="apple-touch-icon" sizes="180x180" href="https://jetbrains.com/apple-touch-icon.png"><link rel="icon" type="image/png" sizes="32x32" href="https://jetbrains.com/favicon-32x32.png"><link rel="icon" type="image/png" sizes="16x16" href="https://jetbrains.com/favicon-16x16.png"><meta name="msapplication-TileImage" content="https://resources.jetbrains.com/storage/ui/favicons/mstile-144x144.png"><meta name="msapplication-square70x70logo" content="https://resources.jetbrains.com/storage/ui/favicons/mstile-70x70.png"><meta name="msapplication-square150x150logo" content="https://resources.jetbrains.com/storage/ui/favicons/mstile-150x150.png"><meta name="msapplication-wide310x150logo" content="https://resources.jetbrains.com/storage/ui/favicons/mstile-310x150.png"><meta name="msapplication-square310x310logo" content="https://resources.jetbrains.com/storage/ui/favicons/mstile-310x310.png"><meta name="image" content=""><!-- Open Graph --><meta property="og:title" content="FirstOrDefault | Conteúdo do Curso Python para Dynamo do Revit"><meta property="og:description" content=""><meta property="og:image" content=""><meta property="og:site_name" content="Conteúdo do Curso Python para Dynamo do Revit Help"><meta property="og:type" content="website"><meta property="og:locale" content="en_US"><meta property="og:url" content="writerside-documentation/firstordefault.html"><!-- End Open Graph --><!-- Twitter Card --><meta name="twitter:card" content="summary_large_image"><meta name="twitter:site" content=""><meta name="twitter:title" content="FirstOrDefault | Conteúdo do Curso Python para Dynamo do Revit"><meta name="twitter:description" content=""><meta name="twitter:creator" content=""><meta name="twitter:image:src" content=""><!-- End Twitter Card --><!-- Schema.org WebPage --><script type="application/ld+json">{
+    "@context": "http://schema.org",
+    "@type": "WebPage",
+    "@id": "writerside-documentation/firstordefault.html#webpage",
+    "url": "writerside-documentation/firstordefault.html",
+    "name": "FirstOrDefault | Conteúdo do Curso Python para Dynamo do Revit",
+    "description": "",
+    "image": "",
+    "inLanguage":"en-US"
+}</script><!-- End Schema.org --><!-- Schema.org WebSite --><script type="application/ld+json">{
+    "@type": "WebSite",
+    "@id": "writerside-documentation/#website",
+    "url": "writerside-documentation/",
+    "name": "Conteúdo do Curso Python para Dynamo do Revit Help"
+}</script><!-- End Schema.org --></head><body data-id="FirstOrDefault" data-main-title="FirstOrDefault" data-article-props="{&quot;seeAlsoStyle&quot;:&quot;links&quot;}" data-template="article" data-breadcrumbs="Aula-007.md|Aula 007///Linq.md|Linq"><div class="wrapper"><main class="panel _main"><header class="panel__header"><div class="container"><h3>Conteúdo do Curso Python para Dynamo do Revit  Help</h3><div class="panel-trigger"></div></div></header><section class="panel__content"><div class="container"><article class="article" data-shortcut-switcher="inactive"><h1 data-toc="FirstOrDefault" id="FirstOrDefault.md">FirstOrDefault</h1><section class="chapter"><h2 id="defini-o" data-toc="defini-o">Defini&ccedil;&atilde;o</h2><p id="z9hhc7m_6">O m&eacute;todo <code class="code" id="z9hhc7m_8">FirstOrDefault</code> &eacute; utilizado para <span class="control" id="z9hhc7m_9">retornar o primeiro elemento</span> de uma cole&ccedil;&atilde;o ou o <span class="control" id="z9hhc7m_10">primeiro elemento que satisfa&ccedil;a uma condi&ccedil;&atilde;o</span>.</p><p id="z9hhc7m_7">Caso a cole&ccedil;&atilde;o esteja vazia, ou n&atilde;o exista um elemento que satisfa&ccedil;a a condi&ccedil;&atilde;o, o m&eacute;todo retorna <code class="code" id="z9hhc7m_11">None</code>.</p></section><section class="chapter"><h2 id="exemplos" data-toc="exemplos">Exemplos</h2><p id="z9hhc7m_12">A forma mais simples de usar o m&eacute;todo <code class="code" id="z9hhc7m_20">FirstOrDefault</code> &eacute; sem passar nenhum argumento. Nesse caso, o m&eacute;todo retorna o primeiro elemento da cole&ccedil;&atilde;o.</p><div class="code-block" data-lang="python">
+import clr
+
+# Adiciona a referência para o System.Core
+clr.AddReference(&quot;System.Core&quot;)
+
+# Importa os métodos de extensão do LINQ.
+import System
+clr.ImportExtensions(System.Linq)
+
+# cria uma lista de números
+numeros = [1, 2, 3, 4, 5]
+
+# retorna o primeiro número da lista
+numero = numeros.FirstOrDefault()
+
+OUT = numero # retorna 1
+</div><p id="z9hhc7m_14">Vamos supor que tenhamos uma lista de pessoas e queremos retornar a primeira cujo nome comece com a letra &quot;P&quot;.</p><div class="code-block" data-lang="python">
+import clr
+
+# Adiciona a referência para o System.Core
+clr.AddReference(&quot;System.Core&quot;)
+
+# Importa os métodos de extensão do LINQ.
+import System
+clr.ImportExtensions(System.Linq)
+
+class Pessoa:
+	def __init__(self, nome, idade):
+		self.nome = nome
+		self.idade = idade
+
+# cria uma lista de pessoas
+pessoas = [
+	Pessoa(&quot;Maria&quot;, 30),
+	Pessoa(&quot;João&quot;, 25),
+	Pessoa(&quot;José&quot;, 20),
+	Pessoa(&quot;Ana&quot;, 35),
+	Pessoa(&quot;Pedro&quot;, 40),
+	Pessoa(&quot;Carla&quot;, 45)
+]
+
+# retorna a primeira pessoa que o nome comece com a letra &quot;P&quot;
+pessoa = pessoas.FirstOrDefault(lambda p: p.nome.startswith('P'))
+
+OUT = f&quot;{pessoa.nome} - {pessoa.idade} anos&quot;
+</div><figure id="z9hhc7m_16"><a href="images/person-with-name-starting-with-p.png" class="lightbox"><img alt="person-with-name-starting-with-p.png" src="images/person-with-name-starting-with-p.png" title="person-with-name-starting-with-p.png" width="700" height="479"></a></figure><p id="z9hhc7m_17">Agora suponha que queremos a pessoa mais nova da lista.</p><div class="code-block" data-lang="python">
+# retorna a pessoa mais nova
+pessoa = \
+	pessoas \
+	.OrderBy(lambda p: p.idade) \
+	.FirstOrDefault()
+</div><aside class="prompt" data-type="note" data-title="" id="z9hhc7m_19"><p id="z9hhc7m_21">Se quisermos retornar o <span class="control" id="z9hhc7m_23">&uacute;ltimo</span> elemento da cole&ccedil;&atilde;o, podemos usar o m&eacute;todo <code class="code" id="z9hhc7m_24">LastOrDefault()</code>.</p><p id="z9hhc7m_22">Seu funcionamento &eacute; similar ao <code class="code" id="z9hhc7m_25">FirstOrDefault</code>, mas retorna o &uacute;ltimo elemento da cole&ccedil;&atilde;o.</p></aside></section><section class="chapter"><h2 id="exerc-cio" data-toc="exerc-cio">Exerc&iacute;cio</h2><p id="z9hhc7m_26">Obtenha o <span class="control" id="z9hhc7m_29">Room</span> do modelo <span class="control" id="z9hhc7m_30">rac_basic_sample_project_rvt</span> que se chama <span class="control" id="z9hhc7m_31">Master Bath</span>.</p><aside class="prompt" data-type="warning" data-title="" id="z9hhc7m_27"><p id="z9hhc7m_32">Aten&ccedil;&atilde;o para o nome do Room, pois ele &eacute; <a href="https://pt.wikipedia.org/wiki/Case-sensitive" id="z9hhc7m_33" data-external="true" rel="noopener noreferrer"><span class="control" id="z9hhc7m_35">case-sensitive</span></a> e tamb&eacute;m pode n&atilde;o ser exatamente <span class="control" id="z9hhc7m_34">Master Bath</span>.</p></aside><section class="chapter"><div class="collapse"><div class="collapse__title"><h3 id="z9hhc7m_28" data-toc="z9hhc7m_28">Solu&ccedil;&atilde;o</h3></div><div class="collapse__content"><div class="code-collapse" data-lang="none" data-is-expanded="false" data-synopsis="Código principal" data-disable-link-processing="true">    result = \
+        FilteredElementCollector(doc) \
+        .OfCategory(BuiltInCategory.OST_Rooms) \
+        .WhereElementIsNotElementType() \
+        .FirstOrDefault(lambda room: &quot;Master Bath&quot; in room.Name)</div><figure id="z9hhc7m_37"><a href="images/collect-room-master-bath.png" class="lightbox"><img alt="room-master-bath.png" src="images/collect-room-master-bath.png" title="room-master-bath.png" width="700" height="238"></a></figure><br><p id="z9hhc7m_39">Baixe o c&oacute;digo completo aqui 👉 <a data-external="true" id="z9hhc7m_40" href="resources/collect-room-master-bath.py" target="_blank" rel="noopener noreferrer">collect-room-master-bath.py</a></p></div></div></section></section><div class="last-modified">Last modified: 29 November 2024</div><div data-feedback-placeholder="true"></div><div class="navigation-links _bottom"><a href="orderby.html" class="navigation-links__prev">OrderBy</a><a href="todictionary.html" class="navigation-links__next">ToDictionary</a></div></article><div id="disqus_thread"></div></div></section></main></div><script src="https://resources.jetbrains.com/writerside/apidoc/6.10.0-b518/app.js"></script></body></html>
