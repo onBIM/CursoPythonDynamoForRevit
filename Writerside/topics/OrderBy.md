@@ -68,8 +68,7 @@ Colete os Rooms do **Level 1** do modelo **rac_basic_sample_project_rvt** e orde
          alt="collect-rooms-ordered-by-name" 
          thumbnail="true" 
          style="block"
-         width="700"
-		 border-effect="rounded"/>
+         width="700" />
 	<br/>
 	<p>Baixe o código completo aqui 👉 <resource src="collect-rooms-ordered-by-name.py"/></p>
 </chapter>
