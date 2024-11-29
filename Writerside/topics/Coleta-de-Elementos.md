@@ -65,7 +65,7 @@ O procedimento abaixo mostra como usar o `FilteredElementCollector` para coletar
         <code-block lang="python">
             walls = collector.OfCategory(BuiltInCategory.OST_Walls)
         </code-block>
-        <warning>
+        <warning id="warning-about-ofcategory">
             Note que usando o método <code>OfCategory()</code> todos os 
             elementos que pertencem à <code>BuiltInCategory.OST_Walls</code> serão coletados. Isso incluirá:
             <list>
@@ -130,22 +130,63 @@ O procedimento abaixo mostra como usar o `FilteredElementCollector` para coletar
 
 Antes de coverter o `FilteredElementCollector` para lista podemos fazer muitas outras filtragens. 
 
+### Filtrando _Types_ e _Instances_
+
+Existem dois métodos utilizados para filtrar _Types_ e _Instances_ de elementos.
+
+**[WhereElementIsElementType()](https://www.revitapidocs.com/2024/77793daa-5a26-b4d6-9019-4d998a55099e.htm)**
+:
+Esse método é utilizado para filtrar _Types_ de elementos.
+
+**[WhereElementIsNotElementType()](https://www.revitapidocs.com/2024/061cbbb9-26f1-a8f8-a4b2-3d7ff0105199.htm)**
+:
+Esse método é utilizado para filtrar _Instances_ de elementos.
+
+> Veja que no [aviso sobre o método `OfCategory()`](#warning-about-ofcategory) podemos sanar o problema de vir _Types_ 
+> e _Instances_ juntos, utilizando um desses métodos para filtrar o que queremos.
+> 
+{style="note"}
+
+Portanto, se quisermos coletar **apenas os _Types_** de paredes, usamos o método `WhereElementIsElementType()`.
+
+```python
+walls_types = \
+	collector \
+	.OfCategory(BuiltInCategory.OST_Walls) \
+	.WhereElementIsElementType() \
+	.ToElements()
+```
+
+Por outro lado, se quisermos coletar **apenas as _Instances_** de paredes, usamos o método `WhereElementIsNotElementType()`.
+
+```python
+walls_instances = \
+	collector \
+	.OfCategory(BuiltInCategory.OST_Walls) \
+	.WhereElementIsNotElementType() \
+	.ToElements()
+```
+
+### WherePasses()
+
 Para isso utilizamos o método [`WherePasses()`](https://www.revitapidocs.com/2024/42d4eef3-55a1-2739-0ef8-6bc1d9fc2755.htm)  
 do `FilteredElementCollector`.
 
-Note que este método recebe um objeto do tipo [`ElementFilter`](https://www.revitapidocs.com/2024/b8b46cbf-9ecc-0745-ec53-c3c3b6510113.htm) como argumento.
+> Note que este método recebe um objeto do tipo 
+> [`ElementFilter`](https://www.revitapidocs.com/2024/b8b46cbf-9ecc-0745-ec53-c3c3b6510113.htm) como argumento.
+> 
+{style="note"}
 
 ![wherepasses-method.png](wherepasses-method.png) {width="400" thumbnail="true"}
 
 O `ElementFilter` é uma classe base que possui três classes principais derivadas que caracterizam o "tipo" de filtro: 
 
-Cada uma dessas classes por sua vez possui várias classes derivadas que representam os filtros específicos.
-
-> No nosso código utilizamos essas últimas para criar os filtros.
+> Cada uma dessas classes por sua vez possui várias classes derivadas que representam os filtros específicos que
+> realizam a filtragem.
+> 
+> São elas, na verdade, que iremos passar como argumento para o método `WherePasses()`.
 > 
 {style="note"}
-
-Veja a lista abaixo 👇
 
 <procedure title="Tipos de filtro" collapsible="true" default-state="collapsed">
     <step>
@@ -173,7 +214,7 @@ Veja a lista abaixo 👇
 
 ### Exemplos de filtragem com `WherePasses()`
 
-Uma das formas mais diretas para realizar filtragem dos elementos é como método `WherePasses()` para filtrar.
+Uma das formas mais diretas para realizar filtragem dos elementos é usando o método `WherePasses()` para filtrar.
 
 Em seguida veremos alguns exemplos de como utilizá-lo.
 
@@ -236,41 +277,14 @@ No exemplo a seguir queremos coletar todas as _Furnitures_ e _Caseworks_ que est
 
 Para isso vamos combinar um filtro de categoria com um filtro de interseção de _BoundingBox_.
 
-```python
-1.  # Categorias a filtrar	
-2.  cats = SystemList[BuiltInCategory]([
-3.      BuiltInCategory.OST_Furniture,
-4.      BuiltInCategory.OST_Casework
-5.  ])
-6.
-7.  # Criando o filtro de multi-categoria
-8.  multiCatFilter = ElementMulticategoryFilter(cats)
-9.
-10. # Obtendo o piso à partir da seleção do usuário no Dynamo
-11. floor = UnwrapElement(IN[0])
-12.
-13. bbox = floor.get_BoundingBox(None)
-14. outline = Outline(bbox.Min, bbox.Max)
-15.
-16. # Criando um filtro de interseção de BoundingBox
-17. bboxIntersectsFilter = BoundingBoxIntersectsFilter(outline)
-18.
-19. # Criando um filtro lógico AND
-20. filtersToCombine = SystemList[ElementFilter]([
-21.     multiCatFilter,
-22.     bboxIntersectsFilter
-23. ])
-24.
-25. logicalAndFilter = LogicalAndFilter(filtersToCombine)
-26.
-27. furnitures_and_caseworks_on_floor = \
-28.     FilteredElementCollector(doc) \
-29.     .WherePasses(logicalAndFilter) \
-30.     .ToElements()
-31.
-32. result = furnitures_and_caseworks_on_floor
-```
-{collapsible="true" default-state="collapsed" collapsed-title="Código para coletar Furnitures e Caseworks sobre o piso"}
+<code-block src="../resources/python/collecting-furnitures-and-caseworks-on-floor.py" 
+			lang="Python" 
+			collapsible="true" 
+			default-state="collapsed" 
+			collapsed-title="Código para coletar Furnitures e Caseworks sobre o piso" 
+			include-lines="68-99"/>
+
+Baixe o código completo aqui 👉 <resource src="../resources/python/collecting-furnitures-and-caseworks-on-floor.py"/>.
 
 ![collect-furnitures_and-caseworks-on-floor.png](collect-furnitures_and-caseworks-on-floor.png) {thumbnail="true"}
 
@@ -279,5 +293,5 @@ Para isso vamos combinar um filtro de categoria com um filtro de interseção de
 		Veja que foi necessário utilizar o método <code>UnwrapElement()</code> para <b>converter</b> o elemento 
 		selecionado através do Dynamo para a API do Revit
 	</p>
-	<p>Falaremos mais sobre adiante.</p>
+	<p>Falaremos mais sobre isso no tópico a seguir 👉</p>
 </note>

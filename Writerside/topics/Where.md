@@ -1,7 +1,7 @@
 # Where
 
 ## Definição
-O método `Where` é utilizado para filtrar uma sequência de valores com base em um predicado.
+O método `Where` é utilizado para **filtrar** uma sequência de valores com base em um predicado.
 
 <note>Um <b>predicado</b> é uma função que retorna um valor booleano, ou seja, <code>True</code> ou <code>False</code>.</note>
 
@@ -26,7 +26,7 @@ pares = numeros.Where(lambda n: n % 2 == 0)
 OUT = pares
 ```
 
-![where-even-numbers.png](where-even-numbers.png) {thumbnail="true"}
+![where-even-numbers.png](where-even-numbers.png) {thumbnail="true" width="700"}
 
 Só para exemplificar, veja como ficaria nosso código se utilizássemos uma função convencional ao invés de uma `lambda`.
 
@@ -57,13 +57,17 @@ OUT = pares
 Como mostrado na imagem abaixo, veja que se tentarmos executar esse código no **CPython** teremos um erro.
 O método `Where` não é reconhecido, uma vez que o **CPython** não funciona com os recursos do .NET como o **Linq**.
 
-![error-running-system-on-cpython.png](error-running-system-on-cpython.png) {thumbnail="true"}
+![error-running-system-on-cpython.png](error-running-system-on-cpython.png) {thumbnail="true" width="700"}
 
 ## Exercício
 
 No exemplo mostrado em [](Coleta-de-Elementos.md#usando-um-elementlogicalfilter), onde coletamos todas as _Furnitures_ 
 e _Caseworks_ que estão sobre um piso, adapte o código utilzando o método `Where` para 
 filtrar somente os elementos que são _Chairs_ (cadeiras).
+
+> Utilize o Revit Lookup para inspecionar as propriedades dos elementos e escolher a que melhor resolve o problema.
+> 
+{style="tip"}
 
 <chapter title="Solução" collapsible="true" default-state="collapsed">
 	<code-block src="../resources/python/collecting-chairs.py" lang="Python" collapsible="true" collapsed-title="Código final" default-state="collapsed"/>

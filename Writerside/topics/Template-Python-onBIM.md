@@ -82,7 +82,7 @@ clr.AddReference("System.Core")
 from System.Collections.Generic import List as SystemList
 ```
 
-#### Importa os métodos de extensão do LINQ.
+#### Importa os métodos de extensão do Linq
 
 Linq é uma biblioteca do .NET que permite realizar consultas em coleções de objetos.
 
