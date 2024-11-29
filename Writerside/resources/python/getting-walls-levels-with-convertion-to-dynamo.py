@@ -1,6 +1,6 @@
 # by onBIM Technology
 # www.onbim.net
-# file name: ./Aula 006/ViewIsNotInSheet.py
+# file name: ../resources/python/getting-walls-levels-without-convert-to-dynamo.py
 
 # REFERENCES AND IMPORTS
 # BEGIN>>>>>
@@ -22,6 +22,10 @@ from System.Collections.Generic import List as SystemList
 
 # Import Linq
 clr.ImportExtensions(System.Linq)
+
+# Import Dynamo Library Nodes - Geometry
+clr.AddReference('ProtoGeometry')
+from Autodesk.DesignScript import Geometry as DynamoGeometry
 
 # Import Dynamo Library Nodes - Revit
 clr.AddReference("RevitNodes")
@@ -48,7 +52,8 @@ from Autodesk.Revit.DB import *
 # FUNCTIONS
 # BEGIN>>>>>
 
-# <<< Your classes and functions here >>>
+def GetElementById(document, elementId):
+    return document.GetElement(elementId)
 
 # FUNCTIONS
 # END<<<<<
@@ -71,36 +76,24 @@ result = []
 try:
     errorReport = None
     
-    viewports = \
+    basic_walls = \
         FilteredElementCollector(doc) \
-        .OfClass(Viewport) \
-        .WhereElementIsNotElementType() \
-        .ToElements()
-    
-    # Com List Comprehension
-    # viewIdsInSheets = [
-    #     vp.ViewId
-    #     for vp in viewports
-    # ]
-    
-    viewIdsInSheets = viewports.Select(lambda vp: vp.ViewId)
-    
-    viewsNotInSheets = \
-        FilteredElementCollector(doc) \
-        .OfCategory(BuiltInCategory.OST_Views) \
-        .WhereElementIsNotElementType() \
+        .OfClass(Wall) \
         .Where(
-            lambda view:
-            view is not None
-            and not view.IsTemplate
-            and view is not ViewSheet
-            and view.Id not in viewIdsInSheets
-            and len(view.GetDependentViewIds()) == 0
+            lambda wall: 
+            wall.WallType.Kind == WallKind.Basic
+            and not wall.IsStackedWallMember
         ) \
-        .Select(lambda view: view.ToDSType(True))
     
-    result = viewsNotInSheets
+    walls_levels = \
+        basic_walls \
+        .Select(lambda wall: GetElementById(doc, wall.LevelId)) \
     
+    result = [
+        basic_walls.Select(lambda wall: wall.ToDSType(True)),
+        walls_levels.Select(lambda level: level.ToDSType(True))
+    ]
+
 except Exception as e:
     # if error occurs anywhere in the process catch it
     errorReport = traceback.format_exc()

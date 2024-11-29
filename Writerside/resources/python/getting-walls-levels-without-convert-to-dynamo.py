@@ -1,6 +1,6 @@
 # by onBIM Technology
 # www.onbim.net
-# file name: ../resources/python/getting-walls-levels.py
+# file name: ../resources/python/getting-walls-levels-without-convert-to-dynamo.py
 
 # REFERENCES AND IMPORTS
 # BEGIN>>>>>
@@ -52,7 +52,8 @@ from Autodesk.Revit.DB import *
 # FUNCTIONS
 # BEGIN>>>>>
 
-# <<< Your classes and functions here >>>
+def GetElementById(document, elementId):
+    return document.GetElement(elementId)
 
 # FUNCTIONS
 # END<<<<<
@@ -77,9 +78,21 @@ try:
     
     basic_walls = \
         FilteredElementCollector(doc) \
-        .OfClass(BuiltInCategory.OST_Walls) \
-        .WhereElementIsNotElementType() \
-        .ToElements()
+        .OfClass(Wall) \
+        .Where(
+            lambda wall: 
+            wall.WallType.Kind == WallKind.Basic
+            and not wall.IsStackedWallMember
+        ) \
+    
+    walls_levels = \
+        basic_walls \
+        .Select(lambda wall: GetElementById(doc, wall.LevelId)) \
+    
+    result = [
+        basic_walls,
+        walls_levels
+    ]
 
 except Exception as e:
     # if error occurs anywhere in the process catch it

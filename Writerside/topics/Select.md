@@ -79,7 +79,38 @@ Faça um código que obtenha o **_Level_** de todas as paredes da família _Basi
 > 
 {style="tip"}
 
-<chapter title="Solução">
-
+<chapter title="Solução" collapsible="true" default-state="collapsed">
+	<code-block src="../resources/python/getting-walls-levels-without-convert-to-dynamo.py" 
+				lang="Python" 
+				include-lines="52-59,72-107"
+				collapsible="true"
+				collapsed-title="Códgigo sem conversão para elementos do Dynamo"/>
+	<p>
+		Perceba que dessa forma obteremos elementos da API do Revit. Isso impedirá que eles possam ser usados 
+		por outros nodes do Dynamo
+	</p>
+	<img src="getting-walls-levels-without-convert-to-dynamo.png" 
+		 alt="getting-walls-levels-without-convert-to-dynamo"
+		 thumbnail="true"
+		 style="block"/>
+	<br/>
+	<p>
+		Para resolver esse problema, precisamos converter esses elementos para o contexto do Dynamo como foi mostrado
+		no tópico <a href="converting-objects-between-revit-and-dynamo.md"/>
+	</p>
+	<br/>
+	<code-block src="../resources/python/getting-walls-levels-with-convertion-to-dynamo.py" 
+				lang="Python" 
+				include-lines="92-95"
+				collapsible="true"
+				collapsed-title="Códgigo convertendo os elementos para o Dynamo"/>
+	<img src="getting-walls-levels-with-convertion-to-dynamo.png" 
+		 alt="getting-walls-levels-with-convertion-to-dynamo.png"
+		 thumbnail="true" 
+		 style="block"/>
+	<p>
+		Baixe o código final aqui 👉
+		<resource src="../resources/python/getting-walls-levels-with-convertion-to-dynamo.py"/>
+	</p>
 </chapter>
 
